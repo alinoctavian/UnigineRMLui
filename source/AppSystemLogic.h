@@ -43,6 +43,9 @@ public:
 	int postUpdate() override;
 
 	int shutdown() override;
+
+
+	void RenderCallback();
 };
 
 #endif // __APP_SYSTEM_LOGIC_H__

@@ -72,6 +72,8 @@ int AppSystemLogic::init()
 		Log::error("Documment is nullptr \n");
 	}
 
+	Render::addCallback(Render::CALLBACK_END_SCREEN, MakeCallback(this, &AppSystemLogic::RenderCallback));
+
 	return 1;
 }
 
@@ -82,12 +84,7 @@ int AppSystemLogic::init()
 int AppSystemLogic::update()
 {
 
-	if (Context != nullptr) {
-		Context->Render();
-
-		
-		Context->Update();
-	}
+	
 	return 1;
 }
 
@@ -106,4 +103,16 @@ int AppSystemLogic::shutdown()
 	Rml::Core::Shutdown();
 	// Write here code to be called on engine shutdown.
 	return 1;
+}
+
+void AppSystemLogic::RenderCallback()
+{
+
+	if (Context != nullptr) {
+		Context->Render();
+
+
+		Context->Update();
+	}
+
 }
