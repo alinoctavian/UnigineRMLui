@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<asset version="2.13.0.0">
+	<guid>7ee5c14618f1a7ed2fc1e8689e0930a7ac97f5da</guid>
+	<type>texture</type>
+	<hash>1998816e</hash>
+	<runtimes>
+		<runtime id="bd0d7167445bbf9af9790a31206cfddc19997f8b" name="material_ball_a.png" link="0"/>
+		<runtime id="7ee5c14618f1a7ed2fc1e8689e0930a7ac97f5da" name="material_ball_a.dds" link="1"/>
+	</runtimes>
+	<parameters>
+		<parameter type="bool" name="unchanged">0</parameter>
+		<parameter type="string" name="mipmap_type">box</parameter>
+		<parameter type="string" name="image_format">ATI1</parameter>
+		<parameter type="bool" name="invert_g">0</parameter>
+		<parameter type="string" name="image_type">2d</parameter>
+		<parameter type="string" name="width">auto</parameter>
+		<parameter type="string" name="height">auto</parameter>
+		<parameter type="bool" name="srgb_correction">0</parameter>
+		<parameter type="string" name="preset_name">ambient occlusion</parameter>
+	</parameters>
+</asset>

@@ -1,0 +1,65 @@
+<?xml version='1.0'?>
+<doc>
+	<assembly>
+		<name>Unigine</name>
+	</assembly>
+	<members>
+		<member name="M:Unigine.IG.DIS.Connector.init(String,int,int,int,int)">
+			<summary>
+			Initializes the DIS Connector using the given parameters.
+			</summary> 
+			<param name="ip"> Broadcast address of the server computer that is used to broadcast messages to IG over the network </param>
+			<param name="site"> Site ID of this application instance. </param>
+			<param name="exercise"> Exercise ID of the DIS. </param>
+			<param name="app"> Application ID of this application instance. If not set, will be generated automatically. </param>
+			<param name="port"> Connection port. This argument is optional, default value is 3000. </param> 
+		</member>
+		<member name="M:Unigine.IG.DIS.Connector.setConnectCallback(Unigine.CallbackBase)">
+			<summary>
+			Sets the parameter to be called when connection is established.
+			</summary> 
+			<param name="func"> Parameter to be called when connection is established. </param> 
+		</member>
+		<member name="M:Unigine.IG.DIS.Connector.getConnectCallback">
+			<summary>
+			Returns the parameter that is called when connection is established.
+			</summary>  
+			<returns>Parameter to be called when connection is established.</returns>
+		</member>
+		<member name="M:Unigine.IG.DIS.Connector.setCallbackOnRecvPacket(int,Unigine.CallbackBase)">
+			<summary>
+			Sets the parameter to be called when the packet is received.
+			</summary> 
+			<param name="pdu_type"> PDU type. </param>
+			<param name="func"> Parameter to be called when the packet is received.  Callback's signature: void func(KDIS::PDU::Header *packet). </param> 
+		</member>
+		<member name="M:Unigine.IG.DIS.Connector.getReceivePacketCallback(int)">
+			<summary>
+			Returns the parameter that is called when the packet is received.
+			</summary> 
+			<param name="pdu_type"> PDU type. </param> 
+			<returns>Parameter to be called when the packet is received.</returns>
+		</member>
+		<member name="M:Unigine.IG.DIS.Connector.getInternalEntityID(int,int)">
+			<summary>
+			Returns the IG internal entity ID.
+			</summary> 
+			<param name="app"> Application ID. </param>
+			<param name="id"> DIS entity ID. </param> 
+			<returns>IG internal entity ID.</returns>
+		</member>
+		<member name="M:Unigine.IG.DIS.Connector.setManualPacketProcess(bool)">
+			<summary>
+			Enables or disables manual processing of packets. By default, certain packets are processed automatically. If manual processing is enabled, packets are just passed to a callback.
+			</summary> 
+			<param name="enabled"> Flag: true if the manual packet process is enabled; otherwise, false. The default value is false. </param> 
+		</member>
+		<member name="M:Unigine.IG.DIS.Connector.setConnectionThreadCallbacks(Unigine.CallbackBase,Unigine.CallbackBase)">
+			<summary>
+			Sets callbacks for tuning the connection instance.					This callback will be invoked in a thread that is not the main thread.
+			</summary> 
+			<param name="on_connect"> Parameter to be called in the connection thread immediately after the connection is established. Callback's signature: void func(KDIS::NETWORK::Connection * connection). </param>
+			<param name="on_disconnect"> Parameter to be called after a connection failure or shutdown. Callback's signature: void func(KDIS::NETWORK::Connection * connection). Connection may be nullptr. </param> 
+		</member>
+	</members>
+</doc>

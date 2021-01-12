@@ -1,0 +1,1489 @@
+<?xml version='1.0'?>
+<doc>
+	<assembly>
+		<name>Unigine</name>
+	</assembly>
+	<members>
+		<member name="M:Unigine.IG.ComponentBaseInterface.saveState(BlobPtr)">
+			<summary>
+			Saves the state of the component.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.ComponentBaseInterface.restoreState(BlobPtr)">
+			<summary>
+			Restores the state of the component.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.Manager.getConfig">
+			<summary>
+			Returns the IG configuration as an IGConfig class instance.
+			</summary>  
+			<returns>IGConfig class instance containing IG configuration.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.loadDatabase(int)">
+			<summary>
+			Loads the database with the specified ID and sets it to be used.
+			</summary> 
+			<param name="datatbase_id"> ID of the database to be used. </param> 
+			<returns>true means that the database with the specified ID is loaded successfully; otherwise, false.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getCurrentDatabaseID">
+			<summary>
+			Returns the identifier of the currently loaded world database stored in the IG configuration file (ig_config.xml).
+			</summary>  
+			<returns>Identifier of the world database, or 0, if no world is loaded.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getDatabaseID(char)">
+			<summary>
+			Returns the identifier of the world database with the specified name stored in the IG configuration file (ig_config.xml).
+			</summary> 
+			<param name="world_name"> World database name. </param> 
+			<returns>Identifier of the specified world database, or 0, if no world is loaded.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getDatabaseName(int)">
+			<summary>
+			Returns the name of the world database stored in the IG configuration file (ig_config.xml).
+			</summary> 
+			<param name="id"> Identifier of the world database. </param> 
+			<returns>The world database name.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.isDatabaseLoaded">
+			<summary>
+			Returns a value indicating if any database is currently loaded.
+			</summary>  
+			<returns>true if any database is currently loaded; otherwise, false.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getSkyMap">
+			<summary>
+			Returns the interface of the sky map.
+			</summary>  
+			<returns>Sky map interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getMeteo">
+			<summary>
+			Returns the meteo interface.
+			</summary>  
+			<returns>Meteo interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getSymbolsController">
+			<summary>
+			Returns the interface of the symbols controller.
+			</summary>  
+			<returns>Symbols controller interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getLightController">
+			<summary>
+			Returns the interface of the light controller.
+			</summary>  
+			<returns>Light controller interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.setCoordinateSystem(int)">
+			<summary>
+			Sets the specified coordinate system to be used.
+			</summary> 
+			<param name="coord_system"> Coordinate system to be set. One of the COORDINATE_SYSTEM::* values. </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.getCoordinateSystem">
+			<summary>
+			Returns the currently used coordinate system.
+			</summary>  
+			<returns>Coordinate system currently used.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getConverter">
+			<summary>
+			Returns the converter interface.
+			</summary>  
+			<returns>Converter interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getView(int)">
+			<summary>
+			Returns the interface of the specified view.					The specified view will be created, if it doesn't exist yet.
+			</summary> 
+			<param name="view_id"> ID of the view. </param> 
+			<returns>Pointer to the view interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getViewGroup(int)">
+			<summary>
+			Returns the interface of the specified view group.					The specified view group will be created, if it doesn't exist yet.
+			</summary> 
+			<param name="group_id"> ID of the view group. </param> 
+			<returns>Pointer to the view group interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getEntity(int)">
+			<summary>
+			Returns the interface of the specified entity.					The specified entity will be created, if it doesn't exist yet.
+			</summary> 
+			<param name="entity_id"> ID of the entity.The value should be the entity ID, not the type ID. </param> 
+			<returns>Pointer to the entity interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getEntities(Unigine.Vector{Entity*,int,Unigine.VectorAllocator})">
+			<summary>
+			Fills the list of entities with all existing entities.
+			</summary> 
+			<param name="entities_ret"> List of entities </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.isEntity(int)">
+			<summary>
+			Returns a value indicating if an entity with the specified ID exists.
+			</summary> 
+			<param name="entity_id"> ID of the entity. </param> 
+			<returns>1 if an entity with the specified ID exists; otherwise, 0.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.findEntity(NodePtr)">
+			<summary>
+			Returns the interface of the entity represented by the specified node.
+			</summary> 
+			<param name="node"> Node for which an entity is to be found. </param> 
+			<returns>Pointer to the entity interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.findEntityType(char)">
+			<summary>
+			Returns the ID of the entity type by its name. Entity type ID and name define the type of the entity to be used for a specific instance and are set in the entity definition section of the IG configuration file as follows:
+			</summary> 
+			<param name="type_name"> Entity type name. </param> 
+			<returns>Entity type ID.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.findComponentID(int,char)">
+			<summary>
+			Returns the ID of the component with the given name, which belongs to the specified entity type.
+			</summary> 
+			<param name="entity_type"> Entity type ID.Entity type ID is defined in the entity definition section of the IG configuration file. </param>
+			<param name="name"> Component name. </param> 
+			<returns>Component ID.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.findArticulatedPartID(int,char)">
+			<summary>
+			Returns the identifier of an articulated part by its name and the type of the entity it belongs to, stored in the IG configuration file (ig_config.xml).
+			</summary> 
+			<param name="entity_type"> Entity type identifier indicated in the IG configuration file (ig_config.xml). </param>
+			<param name="name"> Name of an articulated part indicated in the IG configuration file (ig_config.xml). </param> 
+			<returns>Identifier of an articulated part.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.setPlayer(int)">
+			<summary>
+			Sets the view with the given ID as a current one.
+			</summary> 
+			<param name="view_id"> ID of the view to be set. </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.setInterpolation(int)">
+			<summary>
+			Sets a value indicating if interpolation and extrapolation should be enabled for the IG.
+			</summary> 
+			<param name="enabled"> 1 to enable interpolation and extrapolation for the IG; 0 - to disable. </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.isInterpolation">
+			<summary>
+			Returns a value indicating if interpolation and extrapolation are enabled for the IG.
+			</summary>  
+			<returns>1 if interpolation and extrapolation are enabled for the IG; otherwise, 0.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.setInterpolationLerp(int)">
+			<summary>
+			Sets a value indicating if interpolation between the current and previous frames should be enabled for the IG to tackle the problem of lost packets between the IG and hosts.
+			</summary> 
+			<param name="enabled"> 1 to enable interpolation between the current and previous frames for the IG; 0 - to disable. </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.isInterpolationLerp">
+			<summary>
+			Returns a value indicating if interpolation between the current and previous frames is enabled for the IG to tackle the problem of lost packets between the IG and hosts.
+			</summary>  
+			<returns>1 if interpolation between the current and previous frames is enabled for the IG; otherwise, 0.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.setInterpolationTime(double)">
+			<summary>
+			Sets the interpolation time value for the IG.
+			</summary> 
+			<param name="current_time"> Current interpolation time value, in seconds. </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.getInterpolationTime">
+			<summary>
+			Returns the current interpolation time value for the IG.
+			</summary>  
+			<returns>Interpolation time value, in seconds.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.setInterpolationPeriod(double)">
+			<summary>
+			Sets the interpolation period value for the IG.
+			</summary> 
+			<param name="period"> Interpolation period value, in seconds. The default value is 0.04. </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.getInterpolationPeriod">
+			<summary>
+			Returns the current interpolation period value for the IG.
+			</summary>  
+			<returns>Interpolation period value, in seconds. The default value is 0.04.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.setExtrapolationPeriod(double)">
+			<summary>
+			Sets the extrapolation period value for the IG.
+			</summary> 
+			<param name="period"> Extrapolation period value, in seconds. The default value is 0.04. </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.getExtrapolationPeriod">
+			<summary>
+			Returns the current extrapolation period value for the IG.
+			</summary>  
+			<returns>Extrapolation period value, in seconds. The default value is 0.2.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.setInterpolationLerpFactor(double)">
+			<summary>
+			Sets the interpolation lerp factor value for the IG. The lower the value the smoother movement will be, but it will feel like objects move underwater or in a jelly, higher values result in higher positioning accuracy (objects positions will be closer to actual ones for the current frame), but objects will move with a noticeable jitter.					Frame-to-frame interpolation  mode must be enabled.
+			</summary> 
+			<param name="current_time"> Current interpolation lerp factor value, in seconds. </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.getInterpolationLerpFactor">
+			<summary>
+			Returns the current interpolation lerp factor value for the IG. The lower the value the smoother movement will be, but it will feel like objects move underwater or in a jelly, higher values result in higher positioning accuracy (objects positions will be closer to actual ones for the current frame), but objects will move with a noticeable jitter.					Frame-to-frame interpolation  mode must be enabled.
+			</summary>  
+			<returns>Interpolation lerp factor value.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getTerrain">
+			<summary>
+			Returns the currently used terrain object.
+			</summary>  
+			<returns>Currently used terrain object.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getGeodeticPivot">
+			<summary>
+			Returns the geodetic pivot used to curve the terrain.
+			</summary>  
+			<returns>Current geodetic pivot used to curve the terrain.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.isTerrainCurved">
+			<summary>
+			Check if the terrain is curved.
+			</summary>  
+			<returns>1, if the terrain is curved, otherwise 0.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.setTerrainIntersectionMask(int)">
+			<summary>
+			Sets the intersection mask that is used to define the ground/landing surface.
+			</summary> 
+			<param name="mask"> Intersection mask. </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.getTerrainIntersectionMask">
+			<summary>
+			Returns the intersection mask that is used to define the ground/landing surface.
+			</summary>  
+			<returns>Intersection mask.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getHatHot(Unigine.Vec3,double,double,IGIntersection)">
+			<summary>
+			Checks if there is anything in the given geodetic position and returns HAT/HOT as well as surface normal, exact object over which the request was made, intersected surface, world coordinates of the intersection point, etc. to the specified output variables.
+			</summary> 
+			<param name="geo_position"> Geodetic position. </param>
+			<param name="ret_hat"> Address for the return HAT value. </param>
+			<param name="ret_hot"> Address for the return HOT value. </param>
+			<param name="ret_intersection"> Information on intersection at the given geodetic position, such as exact object over which the request was made, intersected surface, world coordinates of the intersection point, etc. </param> 
+			<returns>true, if there is anything in the given geodetic position, otherwise false.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getIntersection(Unigine.Vec3,Unigine.Vec3,int,Unigine.Vector{IGIntersection,int,Unigine.VectorAllocator})">
+			<summary>
+			Checks if the ray with set points intersects with anything.
+			</summary> 
+			<param name="p0"> Ray origin. </param>
+			<param name="p1"> Point along the ray. </param>
+			<param name="mask"> Intersection mask. </param>
+			<param name="ret"> Vector containing information on intersections. </param> 
+			<returns>1, if the ray intersects with anything, otherwise 0.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getWater">
+			<summary>
+			Returns the interface of the water control.
+			</summary>  
+			<returns>Water control interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getSyncker">
+			<summary>
+			Returns the Syncker Interface.
+			</summary>  
+			<returns>Pointer to the Syncker::Syncker interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getSynckerMaster">
+			<summary>
+			Returns the Syncker Master Interface.
+			</summary>  
+			<returns>Pointer to the Syncker::Master interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getSynckerSlave">
+			<summary>
+			Returns the Syncker Slave Interface.
+			</summary>  
+			<returns>Pointer to the Syncker::Slave interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.getEntityType(uint8_t,uint8_t,uint16_t,uint8_t,uint8_t,uint8_t,uint8_t)">
+			<summary>
+			Returns the entity type identifier (defined in the entity definition section) based on the given arguments. Can be used to convert the entity's DIS type to the IG type.You can also set the type using a DIS-style ID:
+			</summary> 
+			<param name="kind"> Entity kind </param>
+			<param name="domain"> Domain </param>
+			<param name="country"> Country </param>
+			<param name="cat"> Category </param>
+			<param name="subcat"> Sub Category </param>
+			<param name="spec"> Specific </param>
+			<param name="extra"> Extra </param> 
+			<returns>Entity type identifier</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.checkEntityType(int64_t)">
+			<summary>
+			Checks if the given entity type is supported by IG.
+			</summary> 
+			<param name="entity_type"> Entity type identifier </param> 
+			<returns>1, if the given entity type is supported, otherwise 0.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.setCollisionVolumeDetectionCallback(Unigine.CallbackBase)">
+			<summary>
+			Sets the callback function that is executed as soon as intersection with the collision volume is detected.
+			</summary> 
+			<param name="func"> Callback function </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.setCollisionSegmentDetectionCallback(Unigine.CallbackBase)">
+			<summary>
+			Sets the callback function that is executed as soon as intersection with the collision segment is detected.
+			</summary> 
+			<param name="func"> Callback function </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.setCollisionVolumeMask(int)">
+			<summary>
+			Sets a new collision volume mask for entities.
+			</summary> 
+			<param name="mask"> New collision volume mask. </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.getCollisionVolumeMask">
+			<summary>
+			Returns the current collision volume mask for entities.
+			</summary>  
+			<returns>Current collision volume mask for entities.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.setFreeze(bool)">
+			<summary>
+			Sets a value indicating if execution of IG logic is temporarily put on hold (paused). This method can be useful for debugging.
+			</summary> 
+			<param name="value"> true - to put on hold (pause) execution of IG logic; false - to resume execution. </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.isFreeze">
+			<summary>
+			Returns a value indicating if execution of IG logic is temporarily put on hold (paused).
+			</summary>  
+			<returns>true, if execution of IG logic is temporarily put on hold (paused), otherwise false.</returns>
+		</member>
+		<member name="M:Unigine.IG.Manager.sendUserMessage(uint8_t,BlobPtr)">
+			<summary>
+			Sends user message from the master to a slave.
+			</summary> 
+			<param name="packet_code"> Packet ID </param>
+			<param name="send_message"> User message </param> 
+		</member>
+		<member name="M:Unigine.IG.Manager.setOnUserMessageReceivedCallback(uint8_t,Unigine.CallbackBase)">
+			<summary>
+			Executes the callback function when the user message from the master is received.
+			</summary> 
+			<param name="packet_code"> Packet ID </param>
+			<param name="callback"> Callback function </param> 
+		</member>
+		<member name="F:Unigine.IG.Manager.COORDINATE_SYSTEM_NED">
+			<summary>
+			NED (North-East-Down) coordinate system. X - front, Y - right, Z - down, default in Unigine. Rotation order: Z -&gt; Y -&gt; X (Yaw-Pitch-Roll)
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.Manager.COORDINATE_SYSTEM_ENU">
+			<summary>
+			ENU (East-North-Up) coordinate system. X - right, Y - front, Z - up, default in Unigine. Rotation order: Z -&gt; X -&gt; Y (Yaw-Roll-Pitch)
+		</summary>
+		</member>
+		<member name="M:Unigine.IG.ArticulatedPart.getID">
+			<summary>
+			Returns the ID of the articulated part.
+			</summary>  
+			<returns>Articulated part ID.</returns>
+		</member>
+		<member name="M:Unigine.IG.ArticulatedPart.getNumNodes">
+			<summary>
+			Returns the total number of nodes representing the articulated part.
+			</summary>  
+			<returns>Number of nodes representing the articulated part.</returns>
+		</member>
+		<member name="M:Unigine.IG.ArticulatedPart.getNode(int)">
+			<summary>
+			Returns the given node from the array of nodes representing the articulated part.
+			</summary> 
+			<param name="num"> Node number. </param> 
+			<returns>Node.</returns>
+		</member>
+		<member name="M:Unigine.IG.ArticulatedPart.setEnabled(int)">
+			<summary>
+			Sets the value indicating if the articulated part is enabled.
+			</summary> 
+			<param name="enable"> 1 to enable the articulated part; 0 - to disable it. </param> 
+		</member>
+		<member name="M:Unigine.IG.ArticulatedPart.getEnabled">
+			<summary>
+			Returns the value indicating if the articulated part is enabled.
+			</summary>  
+			<returns>1 if the articulated part is enabled; otherwise, 0.</returns>
+		</member>
+		<member name="M:Unigine.IG.ArticulatedPart.setPosition(Unigine.Math.vec3)">
+			<summary>
+			Sets the offset of the articulated part in the submodel coordinate system (SCS).
+			</summary> 
+			<param name="offset"> Articulated part offset coordinates to set (X - back, Y - left, Z - down). </param> 
+		</member>
+		<member name="M:Unigine.IG.ArticulatedPart.getPosition">
+			<summary>
+			Returns the current offset of the articulated part in the submodel coordinate system (SCS).
+			</summary>  
+			<returns>Articulated part offset coordinates (X - back, Y - left, Z - down).</returns>
+		</member>
+		<member name="M:Unigine.IG.ArticulatedPart.setRotation(Unigine.Math.vec3)">
+			<summary>
+			Sets the rotation of the articulated part in the submodel coordinate system (SCS).
+			</summary> 
+			<param name="rotation_euler"> Articulated part rotation euler angles to set. </param> 
+		</member>
+		<member name="M:Unigine.IG.ArticulatedPart.getRotationEuler">
+			<summary>
+			Returns the rotation of the articulated part in the submodel coordinate system (SCS).
+			</summary>  
+			<returns>Articulated part rotation euler angles.</returns>
+		</member>
+		<member name="M:Unigine.IG.Component.getID">
+			<summary>
+			Returns the component ID.
+			</summary>  
+			<returns>Component ID.</returns>
+		</member>
+		<member name="M:Unigine.IG.Component.getClass">
+			<summary>
+			Returns the component class.
+			</summary>  
+			<returns>CIGI component class.</returns>
+		</member>
+		<member name="M:Unigine.IG.Component.getInstanceID">
+			<summary>
+			Returns the instance ID.
+			</summary>  
+			<returns>Instance ID.</returns>
+		</member>
+		<member name="M:Unigine.IG.Component.getNode">
+			<summary>
+			Returns the node assigned to the component.
+			</summary>  
+			<returns>Node assigned to the component.</returns>
+		</member>
+		<member name="M:Unigine.IG.Component.getProperty">
+			<summary>
+			Returns the node assigned to the component.
+			</summary>  
+			<returns>Property assigned to the component.</returns>
+		</member>
+		<member name="M:Unigine.IG.Component.setParameterData(char,void)">
+			<summary>
+			Sets the data for the component parameter with the specified name.
+			</summary> 
+			<param name="name"> Parameter name. </param>
+			<param name="value"> Pointer to a buffer with parameter data to be set. </param> 
+		</member>
+		<member name="M:Unigine.IG.Component.setParameterInt(char,int)">
+			<summary>
+			Sets the value of the component parameter with the specified name using the specified integer value.
+			</summary> 
+			<param name="name"> Parameter name. </param>
+			<param name="value"> Value to be set. </param> 
+		</member>
+		<member name="M:Unigine.IG.Component.getParameterInt(char)">
+			<summary>
+			Returns the current value of the parameter with the specified name.
+			</summary> 
+			<param name="name"> Parameter name. </param> 
+			<returns>Current value of the parameter with the specified name.</returns>
+		</member>
+		<member name="M:Unigine.IG.Component.setParameterFloat(char,float)">
+			<summary>
+			Sets the value of the component parameter with the specified name using the specified float value.
+			</summary> 
+			<param name="name"> Parameter name. </param>
+			<param name="value"> Value to be set. </param> 
+		</member>
+		<member name="M:Unigine.IG.Component.getParameterFloat(char)">
+			<summary>
+			Returns the current value of the parameter with the specified name.
+			</summary> 
+			<param name="name"> Parameter name. </param> 
+			<returns>Current value of the parameter with the specified name.</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.setValue(char,int)">
+			<summary>
+			Sets the value for the specified parameter.
+			</summary> 
+			<param name="name"> Parameter name. </param>
+			<param name="value"> Integer value to be set. </param> 
+		</member>
+		<member name="M:Unigine.IG.IGConfig.setValue(char,float)">
+			<summary>
+			Sets the value for the specified parameter.
+			</summary> 
+			<param name="name"> Parameter name. </param>
+			<param name="value"> Float value to be set. </param> 
+		</member>
+		<member name="M:Unigine.IG.IGConfig.setValue(char,char)">
+			<summary>
+			Sets the value for the specified parameter.
+			</summary> 
+			<param name="name"> Parameter name. </param>
+			<param name="value"> String value to be set. </param> 
+		</member>
+		<member name="M:Unigine.IG.IGConfig.setValue(char,double)">
+			<summary>
+			Sets the value for the specified parameter.
+			</summary> 
+			<param name="name"> Parameter name. </param>
+			<param name="value"> Parameter value. </param> 
+		</member>
+		<member name="M:Unigine.IG.IGConfig.getValue(char,int) const">
+			<summary>
+			Returns the value of the specified parameter. If this parameter has not been specified in the ig_config.xml file, default_value is set for this parameter.
+			</summary> 
+			<param name="name"> Parameter name. </param>
+			<param name="default_value"> A value to be set if the parameter is not specified in the ig_config.xml file. </param> 
+			<returns>Parameter value.</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.getValue(char,float) const">
+			<summary>
+			Returns the value of the specified parameter. If this parameter has not been specified in the ig_config.xml file, default_value is set for this parameter.
+			</summary> 
+			<param name="name"> Parameter name. </param>
+			<param name="default_value"> A value to be set if the parameter is not specified in the ig_config.xml file. </param> 
+			<returns>Parameter value.</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.getValue(char,char) const">
+			<summary>
+			Returns the value of the specified parameter. If this parameter has not been specified in the ig_config.xml file, default_value is set for this parameter.
+			</summary> 
+			<param name="name"> Parameter name. </param>
+			<param name="default_value"> A value to be set if the parameter is not specified in the ig_config.xml file. </param> 
+			<returns>Parameter value.</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.getValue(char,double) const">
+			<summary>
+			Returns the value for the specified parameter. If this parameter has not been specified in the ig_config.xml file, default_value is set for this parameter.
+			</summary> 
+			<param name="name"> Parameter name. </param>
+			<param name="default_value"> A value to be set if the parameter is not specified in the ig_config.xml file. </param> 
+			<returns>Parameter value.</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.getPath const">
+			<summary>
+			Returns the path to the current ig_config.xml file.
+			</summary>  
+			<returns>Path to the ig_config.xml file.</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.load(char)">
+			<summary>
+			Loads IG configuration from a file with the specified name.
+			</summary> 
+			<param name="filename"> Path to the IG configuration file. </param> 
+			<returns>true if the IG configuration is successfully loaded from the specified file; otherwise, false.</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.save(char)">
+			<summary>
+			Saves the IG configuration to the specified file.
+			</summary> 
+			<param name="filename"> Path to a file to save the IG configuration to. </param> 
+			<returns>true if the IG configuration is successfully saved to the specified file; otherwise, false.</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.save">
+			<summary>
+			Saves the IG configuration to the current file.
+			</summary>  
+			<returns>true if the IG configuration is successfully saved; otherwise, false.</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.reload">
+			<summary>
+			Reloads the IG configuration.
+			</summary>  
+			<returns>true if the IG configuration is successfully reloaded; otherwise, false.</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.removeVariable(char)">
+			<summary>
+			Removes the specified variable from the configuration file.
+			</summary> 
+			<param name="name"> Name of the variable to be removed. </param> 
+		</member>
+		<member name="M:Unigine.IG.IGConfig.isVariableExist(char) const">
+			<summary>
+			Returns a value indicating if a variable with the specified name exists.
+			</summary> 
+			<param name="name"> Name of the variable. </param> 
+			<returns>true if a variable with the specified name exists; otherwise, false.</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.getEntityTypeNames const">
+			<summary>
+			Returns the list of available type names (type_name -&gt; type_id).
+			</summary>  
+			<returns>List of available type names (type_name -&gt; type_id).</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.getEntityTypes">
+			<summary>
+			Returns the list of available types (type_id -&gt; EntityTypeDef).
+			</summary>  
+			<returns>List of available types (type_id -&gt; EntityTypeDef).</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.getDatabases">
+			<summary>
+			Returns the list of available worlds (id -&gt; DatabaseDef).
+			</summary>  
+			<returns>List of available worlds (id -&gt; DatabaseDef).</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.getViewTypes">
+			<summary>
+			Returns the list of available camera post effects (id -&gt; ViewTypeDef).
+			</summary>  
+			<returns>List of available camera post effects (id -&gt; ViewTypeDef).</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.getCloudTypes">
+			<summary>
+			Returns the list of available cloud types (id -&gt; CloudTypeDef).
+			</summary>  
+			<returns>List of available cloud types (id -&gt; CloudTypeDef).</returns>
+		</member>
+		<member name="M:Unigine.IG.IGConfig.getSynckerChannels">
+			<summary>
+			Returns the list of available Syncker channels (id -&gt; SynckerChannelDef).
+			</summary>  
+			<returns>List of available Syncker channels (id -&gt; SynckerChannelDef).</returns>
+		</member>
+		<member name="M:Unigine.IG.ViewBase.setParentEntity(Entity)">
+			<summary>
+			Attaches the View(Group) as a child to the specified parent entity.
+			</summary> 
+			<param name="entity"> Parent entity. </param> 
+		</member>
+		<member name="M:Unigine.IG.ViewBase.getParentEntityID">
+			<summary>
+			Returns the ID of the parent entity for the View(Group).
+			</summary>  
+			<returns>Parent entity ID.</returns>
+		</member>
+		<member name="M:Unigine.IG.ViewBase.setGeoPosition(Unigine.Math.Vec3)">
+			<summary>
+			Sets the View(Group) position, in geo-coordinates (lat, lon, alt).
+			</summary> 
+			<param name="position"> View(Group) position to set, in geo-coordinates (lat, lon, alt). </param> 
+		</member>
+		<member name="M:Unigine.IG.ViewBase.getGeoPosition">
+			<summary>
+			Returns the current View(Group) position, in geo-coordinates (lat, lon, alt).
+			</summary>  
+			<returns>View(Group) position, in geo-coordinates (lat, lon, alt).</returns>
+		</member>
+		<member name="M:Unigine.IG.ViewBase.setPosition(Unigine.Math.Vec3)">
+			<summary>
+			Sets the View(Group) position.
+			</summary> 
+			<param name="position"> View(Group) position coordinates to set. </param> 
+		</member>
+		<member name="M:Unigine.IG.ViewBase.getPosition">
+			<summary>
+			Returns the current View(Group) position.
+			</summary>  
+			<returns>View(Group) position coordinates.</returns>
+		</member>
+		<member name="M:Unigine.IG.ViewBase.setWorldPosition(Unigine.Math.Vec3)">
+			<summary>
+			Sets the View(Group) position, in world coordinates.
+			</summary> 
+			<param name="position"> View(Group) position to set, in world coordinates. </param> 
+		</member>
+		<member name="M:Unigine.IG.ViewBase.getWorldPosition">
+			<summary>
+			Returns the current View(Group) position, in world coordinates.
+			</summary>  
+			<returns>View(Group) position, in world coordinates.</returns>
+		</member>
+		<member name="M:Unigine.IG.ViewBase.setRotationEuler(Unigine.Math.vec3)">
+			<summary>
+			Sets the View(Group) rotation.
+			</summary> 
+			<param name="euler"> View(Group) rotation euler angles to set. </param> 
+		</member>
+		<member name="M:Unigine.IG.ViewBase.getRotationEuler">
+			<summary>
+			Returns the current View(Group) rotation.
+			</summary>  
+			<returns>View(Group) rotation euler angles.</returns>
+		</member>
+		<member name="M:Unigine.IG.ViewBase.setWorldRotationEuler(Unigine.Math.vec3)">
+			<summary>
+			Sets the View(Group) rotation, in world coordinates.
+			</summary> 
+			<param name="euler"> View(Group) rotation euler angles to set. </param> 
+		</member>
+		<member name="M:Unigine.IG.ViewBase.getWorldRotationEuler">
+			<summary>
+			Returns the current View(Group) rotation, in world coordinates.
+			</summary>  
+			<returns>View(Group) rotation euler angles.</returns>
+		</member>
+		<member name="M:Unigine.IG.ViewBase.getNode">
+			<summary>
+			Returns the node assigned to the View(Group).
+			</summary>  
+			<returns>Node assigned to the View(Group).</returns>
+		</member>
+		<member name="M:Unigine.IG.ViewBase.getPlayer">
+			<summary>
+			Returns the PlayerDummy assigned to the View(Group).
+			</summary>  
+			<returns>PlayerDummy assigned to the View(Group).</returns>
+		</member>
+		<member name="M:Unigine.IG.ViewGroup.getComponent(int)">
+			<summary>
+			Returns the interface of the specified component.
+			</summary> 
+			<param name="id"> ID of the component. </param> 
+			<returns>Component interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.ViewGroup.getID">
+			<summary>
+			Returns the ID of the view group.
+			</summary>  
+			<returns>View group ID.</returns>
+		</member>
+		<member name="M:Unigine.IG.View.getID">
+			<summary>
+			Returns the ID of the view.
+			</summary>  
+			<returns>View ID.</returns>
+		</member>
+		<member name="M:Unigine.IG.View.setParentGroup(ViewGroup)">
+			<summary>
+			Attaches the view as a child to the specified parent view group.
+			</summary> 
+			<param name="entity"> Parent view group. </param> 
+		</member>
+		<member name="M:Unigine.IG.View.getParentGroupID">
+			<summary>
+			Returns the ID of the parent group for the view.
+			</summary>  
+			<returns>Parent view group ID.</returns>
+		</member>
+		<member name="M:Unigine.IG.View.setDefinition(float,float,float,float,float,float)">
+			<summary>
+			Sets the viewing volume parameters for the view using the specified values.
+			</summary> 
+			<param name="near"> Distance to the near clipping plane, in units. </param>
+			<param name="far"> Distance to the far clipping plane, in units. </param>
+			<param name="left_deg"> Left half-angle, in degrees. </param>
+			<param name="right_deg"> Right half-angle, in degrees. </param>
+			<param name="top_deg"> Top half-angle, in degrees. </param>
+			<param name="bottom_deg"> Bottom half-angle, in degrees. </param> 
+		</member>
+		<member name="M:Unigine.IG.View.getNear">
+			<summary>
+			Returns the current distance to the near clipping plane.
+			</summary>  
+			<returns>Distance to the near clipping plane, in units.</returns>
+		</member>
+		<member name="M:Unigine.IG.View.getFar">
+			<summary>
+			Returns the current distance to the far clipping plane.
+			</summary>  
+			<returns>Distance to the far clipping plane, in units.</returns>
+		</member>
+		<member name="M:Unigine.IG.View.getLeftDeg">
+			<summary>
+			Returns the current left half-angle for the view frustum.
+			</summary>  
+			<returns>Left half-angle, in degrees.</returns>
+		</member>
+		<member name="M:Unigine.IG.View.getRightDeg">
+			<summary>
+			Returns the current right half-angle for the view frustum.
+			</summary>  
+			<returns>Right half-angle, in degrees.</returns>
+		</member>
+		<member name="M:Unigine.IG.View.getTopDeg">
+			<summary>
+			Returns the current top half-angle for the view frustum.
+			</summary>  
+			<returns>Top half-angle, in degrees.</returns>
+		</member>
+		<member name="M:Unigine.IG.View.getBottomDeg">
+			<summary>
+			Returns the current bottom half-angle for the view frustum.
+			</summary>  
+			<returns>Bottom half-angle, in degrees.</returns>
+		</member>
+		<member name="M:Unigine.IG.View.setReplicationMode(int)">
+			<summary>
+			Sets the replication mode for the view.
+			</summary> 
+			<param name="id"> Replication mode to be set. One of the REPLICATION_* values. </param> 
+		</member>
+		<member name="M:Unigine.IG.View.getReplicationMode">
+			<summary>
+			Returns the current replication mode for the view.
+			</summary>  
+			<returns>Replication mode. One of the REPLICATION_* values.</returns>
+		</member>
+		<member name="M:Unigine.IG.View.setMirrorMode(int)">
+			<summary>
+			Sets the mirror mode for the view.
+			</summary> 
+			<param name="id"> Mirror mode to be set. One of the MIRROR_* values. </param> 
+		</member>
+		<member name="M:Unigine.IG.View.getMirrorMode">
+			<summary>
+			Returns the current mirror mode for the view.
+			</summary>  
+			<returns>Mirror mode. One of the MIRROR_* values.</returns>
+		</member>
+		<member name="M:Unigine.IG.View.setProjection(int)">
+			<summary>
+			Sets the projection type for the view.
+			</summary> 
+			<param name="id"> Projection type to be set. One of the PROJECTION_* values. </param> 
+		</member>
+		<member name="M:Unigine.IG.View.getProjection">
+			<summary>
+			Returns the current projection type for the view.
+			</summary>  
+			<returns>Projection type. One of the PROJECTION_* values.</returns>
+		</member>
+		<member name="M:Unigine.IG.View.setViewType(int)">
+			<summary>
+			Sets the type of the view. The value of this parameter specifies an IG-defined type for the view.
+			</summary> 
+			<param name="id"> View type to be set. </param> 
+		</member>
+		<member name="M:Unigine.IG.View.getViewType">
+			<summary>
+			Returns the current view type. IG-defined type for the view.
+			</summary>  
+			<returns>View type.</returns>
+		</member>
+		<member name="M:Unigine.IG.View.getComponent(int)">
+			<summary>
+			Returns the interface of the specified component.
+			</summary> 
+			<param name="id"> ID of the component. </param> 
+			<returns>Component interface.</returns>
+		</member>
+		<member name="F:Unigine.IG.View.MIRROR_NONE">
+			<summary>
+			View mirror mode none.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.View.MIRROR_HORIZONTAL">
+			<summary>
+			View mirror mode horizontal.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.View.MIRROR_VERTICAL">
+			<summary>
+			View mirror mode vertical.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.View.MIRROR_BOTH">
+			<summary>
+			View mirror mode horizontal and vertical.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.View.REPLICATION_1_1">
+			<summary>
+			Pixel replication function to be performed on the view: none. This feature is typically used in sensor applications to perform electronic zooming (i.e., pixel and line doubling).
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.View.REPLICATION_1_2">
+			<summary>
+			Pixel replication function to be performed on the view: 1 x 2. This feature is typically used in sensor applications to perform electronic zooming (i.e., pixel and line doubling).
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.View.REPLICATION_2_1">
+			<summary>
+			Pixel replication function to be performed on the view: 2 x 1. This feature is typically used in sensor applications to perform electronic zooming (i.e., pixel and line doubling).
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.View.REPLICATION_2_2">
+			<summary>
+			Pixel replication function to be performed on the view: 2 x 2. This feature is typically used in sensor applications to perform electronic zooming (i.e., pixel and line doubling).
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.View.PROJECTION_PERSPECTIVE">
+			<summary>
+			Perspective view projection.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.View.PROJECTION_ORTHOGRAPHIC">
+			<summary>
+			Orthographic view projection.
+		</summary>
+		</member>
+		<member name="M:Unigine.IG.Region.refresh">
+			<summary>
+			Refreshes the weather region according to its current settings. This method should be called after setting weather region's parameters to apply them. Weather change callbacks are called on refresh.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.Region.setWindSpeed(Unigine.vec3)">
+			<summary>
+			Sets wind speed vector for the weather region.
+			</summary> 
+			<param name="wind_speed"> Vector defining wind speed in all directions, in meters per second. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setWindSpeedEnable(bool)">
+			<summary>
+			Enables or disables taking into account wind speed of this weather region when calculating average values. Weather conditions for overlapping weather regions/layers are combined and average values are calculated for them.
+			</summary> 
+			<param name="enable"> true to take into account wind speed of this weather region when calculating average values; false — to ignore it. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setVisibilityDistance(float)">
+			<summary>
+			Sets visibility distance for the weather region. All atmospheric effects of this region are observed starting from this distance.
+			</summary> 
+			<param name="visibility_distance"> Visibility distance for the weather region, in meters. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setVisibilityDistanceEnable(bool)">
+			<summary>
+			Enables or disables distance-dependent optimization of the weather region. When enabled, atmospheric effects of the region are within the distance range determined by the visibility distance.
+			</summary> 
+			<param name="enable"> true to enable distance-dependent optimization for the weather region; false — to disable it. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setThickness(float)">
+			<summary>
+			Sets vertical layer thickness for the weather region. The altitude of the top of the layer is equal to this value plus altitude.
+			</summary> 
+			<param name="thickness"> Vertical layer thickness for the weather region, in meters. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.getThickness">
+			<summary>
+			Returns the current vertical layer thickness for the weather region.
+			</summary>  
+			<returns>Current vertical layer thickness for the weather region, in meters.</returns>
+		</member>
+		<member name="M:Unigine.IG.Region.setAltitude(double)">
+			<summary>
+			Sets altitude of the base (bottom) of the layer of the weather region.
+			</summary> 
+			<param name="altitude"> Layer base altitude for the weather region, in meters. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setSize(Unigine.vec2)">
+			<summary>
+			Sets the length of the rounded bounding rectangle of the weather region along its X and Y axes (represented by X' and Y' ), respectively.																					This method is not available for weather layers (region type = 0).
+			</summary> 
+			<param name="size"> Vector with two components representing length (in meters) of the rounded bounding rectangle of the weather region along its X and Y axes respectively. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setSize(Unigine.vec3)">
+			<summary>
+			Sets the length of the rounded bounding rectangle of the weather region along its X, Y, and Z axes respectively.					This method is not available for weather layers (region type = 0).
+			</summary> 
+			<param name="size"> Vector with three components representing length (in meters) of the rounded bounding rectangle of the weather region along its X, Y, and Z axes respectively. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setPosition(Vec2)">
+			<summary>
+			Sets geographic location of the rounded bounding rectangle of the weather region.					This method is not available for weather layers (region type = 0).
+			</summary> 
+			<param name="pos"> Vector with two components representing latitude and longitude of the center of the rounded bounding rectangle of the weather region respectively. The origin of the region’s local coordinate system is at this point. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setPosition(Unigine.Vec3)">
+			<summary>
+			Sets geographic location of the rounded bounding rectangle of the weather region.					This method is not available for weather layers (region type = 0).
+			</summary> 
+			<param name="pos"> Vector with three components representing latitude, longitude, and altitude of the center of the rounded bounding rectangle of the weather region respectively. The origin of the region’s local coordinate system is at this point. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setType(int)">
+			<summary>
+			Sets the type of the weather region.
+			</summary> 
+			<param name="type"> Weather region type, one of the following:0 - global (atmospheric layers, which have no distinct horizontal boundaries)1 - local (regional weather with atmospheric effects restricted to a certain area) </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setAltitude(double,double)">
+			<summary>
+			Sets the maximum and the minimum layer altitude for the weather region. This method is an alternative to setting layer's altitude and thickness.
+			</summary> 
+			<param name="min_altitude"> Layer base altitude for the weather region, in meters. </param>
+			<param name="max_altitude"> Layer top altitude for the weather region, in meters. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.resizeToCloudThickness">
+			<summary>
+			Sets vertical layer thickness for the weather region in accordance with the cloud layer thickness. Thickness of the cloud layer is defined by the layer height parameter of its cloud material (inherited from the clouds_base).
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.Region.setPrecipitationIntensity(float)">
+			<summary>
+			Sets precipitation intensity for rain and snow. This parameter is determined by aerosol concentraion (concentration of particles suspended in the air).
+			</summary> 
+			<param name="precipitation_intensity"> Aerosol concentration, in g/m3. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setPrecipitationIntensityEnable(bool)">
+			<summary>
+			Enables or disables taking into account precipitation intensity of this weather region when calculating average values. Weather conditions for overlapping weather regions/layers are combined and average values are calculated for them.
+			</summary> 
+			<param name="enable"> true to take into account precipitation intensity of this weather region when calculating average values; false — to ignore it. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setPrecipitationSize(float)">
+			<summary>
+			Sets the size of particles used for precipitation simulation. Precipitation is rendered using a particle system, this method defines the radius of particles.
+			</summary> 
+			<param name="precipitation_size"> 1 to take into account precipitation size of this weather region when calculating average values; 0 - to ignore it. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setPrecipitationSizeEnable(bool)">
+			<summary>
+			Enables or disables taking into account precipitation size of this weather region when calculating average values. Weather conditions for overlapping weather regions/layers are combined and average values are calculated for them.
+			</summary> 
+			<param name="enable"> true to take into account precipitation size of this weather region when calculating average values; false — to ignore it. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setPrecipitationType(uint64_t)">
+			<summary>
+			Sets a bitmask defining types of precipitation for the weather region/layer.
+			</summary> 
+			<param name="precipitation_type"> Integer value used as a bit mask, each bit of which defines whether the corresponding type of precipitation is enabled for the weather region/layer:bit 1 - rainbit 2 - snowSpecify0 to disable precipitation, to enable rain and snow specify 0x00000003.The set of precipitation types can be extended. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setCloudTypeByEnum(uint64_t)">
+			<summary>
+			Sets cloud type for the weather region.
+			</summary> 
+			<param name="enum_type"> Cloud type, one of the following:0 - None1 - Altocumulus2 - Altostratus3 - Cirrocumulus4 - Cirrostratus5 - Cirrus6 - Cumulonimbus7 - Cumulus8 - Nimbostratus9 - Stratocumulus10 - Stratus11 – 15 - Other </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setCloudDensity(float)">
+			<summary>
+			Sets cloud density for the weather region/layer. This parameter determines cloud coverage.
+			</summary> 
+			<param name="cloud_density"> Cloud density in the [0.0f, 1.0f] range (from minimum to maximum coverage). </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.getCloudThickness">
+			<summary>
+			Returns the current thickness of the cloud layer for the weather region.
+			</summary>  
+			<returns>Thickness of the cloud layer for the weather region, in meters.</returns>
+		</member>
+		<member name="M:Unigine.IG.Region.setLightning(int)">
+			<summary>
+			Enables or disables lightning for the weather region.
+			</summary> 
+			<param name="lightning"> 1 to enable lightning for the weather region; 0 - to disable it. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.setEnabled(bool)">
+			<summary>
+			Enables or disables the weather region.
+			</summary> 
+			<param name="enabled"> true to enable the weather region; false - to disable it. </param> 
+		</member>
+		<member name="M:Unigine.IG.Region.isEnabled">
+			<summary>
+			Returns a value indicating if the weather region is currently enabled.
+			</summary>  
+			<returns>true if the weather region is currently enabled; otherwise, false.</returns>
+		</member>
+		<member name="M:Unigine.IG.LightController.setEnabled(NodePtr,char,bool)">
+			<summary>
+			Enables or disables all lights of a given parent node within a specified category.
+			</summary> 
+			<param name="parent_node"> Parent node of lights to be enabled. </param>
+			<param name="path"> Category of lights in the lights hierarchy. </param>
+			<param name="enable"> 1 to enable lights, 0 to disable. </param> 
+		</member>
+		<member name="M:Unigine.IG.LightController.setEnabled(char,bool)">
+			<summary>
+			Enables or disables all lights within a specified category.
+			</summary> 
+			<param name="path"> Category of lights in the lights hierarchy. </param>
+			<param name="enable"> 1 to enable lights, 0 to disable. </param> 
+		</member>
+		<member name="M:Unigine.IG.LightController.setEnabled(Unigine.Vector{unsignedint,int,Unigine.VectorAllocator},bool)">
+			<summary>
+			Enables or disables all lights within a specified category using its hash.					Toggling lights using the path hash is faster than using categories, therefore, is recommended for use, where appropriate.
+			</summary> 
+			<param name="hash_path"> Hash of the category of lights in the lights hierarchy. </param>
+			<param name="enable"> 1 to enable lights, 0 to disable. </param> 
+		</member>
+		<member name="M:Unigine.IG.LightController.setStrobed(char,bool)">
+			<summary>
+			Enables or disables lights strobing within a specified category.
+			</summary> 
+			<param name="path"> Category of lights in the lights hierarchy. </param>
+			<param name="enable"> 1 to enable strobing, 0 to disable. </param> 
+		</member>
+		<member name="M:Unigine.IG.LightController.setStrobed(Unigine.Vector{unsignedint,int,Unigine.VectorAllocator},bool)">
+			<summary>
+			Enables or disables lights strobing within a specified category using its hash.
+			</summary> 
+			<param name="hash_path"> Hash of the category of lights in the lights hierarchy. </param>
+			<param name="enable"> 1 to enable strobing, 0 to disable. </param> 
+		</member>
+		<member name="M:Unigine.IG.LightController.setBright(char,float)">
+			<summary>
+			Sets the intensity of lights within a specified category.
+			</summary> 
+			<param name="path"> Category of lights in the lights hierarchy. </param>
+			<param name="bright"> Light intensity value within the [0.0f; 1.0f] range. </param> 
+		</member>
+		<member name="M:Unigine.IG.LightController.setBright(Unigine.Vector{unsignedint,int,Unigine.VectorAllocator},float)">
+			<summary>
+			Sets the intensity of lights within a specified category using its hash.
+			</summary> 
+			<param name="hash_path"> Hash of the category of lights in the lights hierarchy. </param>
+			<param name="bright"> Light intensity value within the [0.0f; 1.0f] range. </param> 
+		</member>
+		<member name="M:Unigine.IG.LightController.getIndexPath(char,Unigine.Vector{unsignedint,int,Unigine.VectorAllocator})">
+			<summary>
+			Fills in the vector data array with the path hash values.
+			</summary> 
+			<param name="path"> Category of lights in the lights hierarchy. </param>
+			<param name="ret_hash_path"> Pointer to the array storing hash of the path. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolsController.createSymbol(int,int)">
+			<summary>
+			Creates a new symbol.					Symbol must be immediately added to SymbolsPlane.
+			</summary> 
+			<param name="type"> Type of the symbol:0 for POLYLINE1 for TEXT2 for CIRCLE </param>
+			<param name="symbol_id"> ID of the symbol. </param> 
+			<returns>Pointer to the new created symbol interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.SymbolsController.cloneSymbol(int,int)">
+			<summary>
+			Clones a symbol with the specified ID.
+			</summary> 
+			<param name="symbol_id"> ID of the symbol to be cloned. </param>
+			<param name="new_symbol_id"> ID of the new symbol. </param> 
+			<returns>Pointer to the new cloned symbol interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.SymbolsController.createPlane(int,View)">
+			<summary>
+			Creates a new symbols surface (a virtual plane on which symbols are drawn).A new surface is placed in 3D space coincident with the near clipping plane of the specified view.
+			</summary> 
+			<param name="plane_id"> ID of the symbol. </param>
+			<param name="view"> View relative to which a new symbols surface is to be placed. </param> 
+			<returns>Pointer to the new created symbols surface interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.SymbolsController.createPlane(int,Entity)">
+			<summary>
+			Creates a new symbols surface (a virtual plane on which symbols are drawn). A new surface is placed in 3D space relative to the specified entity.
+			</summary> 
+			<param name="plane_id"> ID of the symbol. </param>
+			<param name="entity"> Entity relative to which a new symbols surface is to be placed. </param> 
+			<returns>Pointer to the new created symbols surface interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.SymbolsController.getSymbol(int)">
+			<summary>
+			Returns the interface of the specified symbol.
+			</summary> 
+			<param name="symbol_id"> ID of the symbol. </param> 
+			<returns>Pointer to the symbol interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.SymbolsController.getPlane(int)">
+			<summary>
+			Returns the interface of the specified symbols surface (a virtual plane on which symbols are drawn).
+			</summary> 
+			<param name="plane_id"> ID of the symbols surface. </param> 
+			<returns>Pointer to the symbols surface interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.SymbolsController.removeSymbol(int)">
+			<summary>
+			Removes the symbol with the specified ID.
+			</summary> 
+			<param name="symbol_id"> ID of the symbol to be removed. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolsController.removePlane(int)">
+			<summary>
+			Removes the symbols surface (plane) with the specified ID, and all symbols related to it.
+			</summary> 
+			<param name="plane_id"> ID of the symbols surface (plane) to be removed. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolsController.clear">
+			<summary>
+			Removes all symbols and planes.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.SymbolsPlane.getID">
+			<summary>
+			Returns the plane identifier.
+			</summary>  
+			<returns>Identifier of the plane.</returns>
+		</member>
+		<member name="M:Unigine.IG.SymbolsPlane.addSymbol(Symbol)">
+			<summary>
+			Adds the specified symbol to the plane.
+			</summary> 
+			<param name="symbol"> ID of the symbol. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolsPlane.setBillboard(bool,bool)">
+			<summary>
+			Toggles on and off the plane orientation to the viewer and fixing the plane size regardless of the distance to it.
+			</summary> 
+			<param name="enable"> 1 to make the plane a billboard (always oriented to the viewer), 0 to disable orientation to the viewer. </param>
+			<param name="fixed_scale"> 1 to make the billboard size unchanged regardless of its distance from the viewer, 0 — to disable. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolsPlane.isBillboard">
+			<summary>
+			Checks if a node is a billboard (always oriented to the viewer).
+			</summary>  
+			<returns>1 if a node is a billboard, otherwise 0.</returns>
+		</member>
+		<member name="M:Unigine.IG.SymbolsPlane.isFixedBillboardScale">
+			<summary>
+			Checks if the billboard size is fixed relative to the viewer regardless of the distance.
+			</summary>  
+			<returns>1 if the billboard scale is fixed, otherwise 0.</returns>
+		</member>
+		<member name="M:Unigine.IG.SymbolsPlane.setPosition(Unigine.vec3)">
+			<summary>
+			Sets the plane position relative to the entity, if the plane has a parent entity.
+			</summary> 
+			<param name="value"> Position in the coordinate system of a parent entity. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolsPlane.setRotation(Unigine.quat)">
+			<summary>
+			Sets the plane rotation relative to the parent entity. The method is not applicable to billboards.
+			</summary> 
+			<param name="rotate"> Rotation quaternion for the plane </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolsPlane.setPhysicalSize(float,float)">
+			<summary>
+			Sets the plane size for planes that have a parent entity.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.SymbolsPlane.setUVSize(float,float,float,float)">
+			<summary>
+			Sets the symbol surface 2D coordinate system.
+			</summary> 
+			<param name="minU"> Minimum U value of the symbol surface. </param>
+			<param name="minV"> Minimum V value of the symbol surface. </param>
+			<param name="maxU"> Maximum U value of the symbol surface. </param>
+			<param name="maxV"> Maximum V value of the symbol surface. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolsPlane.setScreenSize(float,float,float,float)">
+			<summary>
+			Sets the screen plane resolution and offset in pixels.
+			</summary> 
+			<param name="width"> Width of the screen plane, in pixels. </param>
+			<param name="height"> Height of the screen plane, in pixels. </param>
+			<param name="offsetX"> Horizontal offset of the screen plane. </param>
+			<param name="offsetY"> Vertical offset of the screen plane. </param> 
+		</member>
+		<member name="M:Unigine.IG.Symbol.getID">
+			<summary>
+			Returns the ID of the symbol.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.Symbol.setParent(Symbol)">
+			<summary>
+			Sets a new parent for the symbol.
+			</summary> 
+			<param name="symbol"> Symbol to be set as parent for the symbol. </param> 
+		</member>
+		<member name="M:Unigine.IG.Symbol.getParent">
+			<summary>
+			Returns the parent of the symbol.
+			</summary>  
+			<returns>Parent of the symbol.</returns>
+		</member>
+		<member name="M:Unigine.IG.Symbol.setVisible(bool)">
+			<summary>
+			Toggles visibility of the symbol on and off.
+			</summary> 
+			<param name="value"> 1 to make the symbol visible, otherwise 0. </param> 
+		</member>
+		<member name="M:Unigine.IG.Symbol.isVisible">
+			<summary>
+			Checks if the symbol is visible.
+			</summary>  
+			<returns>1 if the symbol is visible, otherwise 0.</returns>
+		</member>
+		<member name="M:Unigine.IG.Symbol.setOrder(int)">
+			<summary>
+			Sets rendering order (Z-order) for the symbol. The higher the value, the later the symbol is rendered atop other elements.
+			</summary> 
+			<param name="value"> Order of the symbol. </param> 
+		</member>
+		<member name="M:Unigine.IG.Symbol.setOffset(float,float)">
+			<summary>
+			Sets the symbol's position relevant to the parent plane or symbol.
+			</summary> 
+			<param name="x"> Horizontal offset from the parent. </param>
+			<param name="y"> Vertical offset from the parent. </param> 
+		</member>
+		<member name="M:Unigine.IG.Symbol.getOffset">
+			<summary>
+			Returns the symbol's position relevant to the parent plane or symbol.
+			</summary>  
+			<returns>Offset from the parent.</returns>
+		</member>
+		<member name="M:Unigine.IG.Symbol.setScale(float,float)">
+			<summary>
+			Sets the symbol's scale.
+			</summary> 
+			<param name="scale_x"> The symbol's scale along the X axis. </param>
+			<param name="scale_y"> The symbol's scale along the Y axis. </param> 
+		</member>
+		<member name="M:Unigine.IG.Symbol.getScale">
+			<summary>
+			Returns the symbol's scale.
+			</summary>  
+			<returns>Symbol's scale.</returns>
+		</member>
+		<member name="M:Unigine.IG.Symbol.setRotation(float)">
+			<summary>
+			Sets the rotation angle for the symbol.
+			</summary> 
+			<param name="angle_anticlockwise"> Angle of rotation in counter-clockwise direction. </param> 
+		</member>
+		<member name="M:Unigine.IG.Symbol.getRotation">
+			<summary>
+			Returns the rotation angle for the symbol.
+			</summary>  
+			<returns>Angle of rotation in counter-clockwise direction.</returns>
+		</member>
+		<member name="M:Unigine.IG.Symbol.setFlashProgram(Unigine.Vector{float,int,Unigine.VectorAllocator})">
+			<summary>
+			Sets the flash program for the symbol. The program uses a sequence of indicated time periods in seconds to consecutively enable and disable the symbol starting from the Enabled state. For example, a sequence 0.3;0.05;0.1 means that a symbol is enabled for 0.3 seconds, then disabled for 0.05 seconds, enabled for 0.1 seconds, and then continues to be enabled for 0.3 seconds, etc. To disable the program, the array should be empty.
+			</summary> 
+			<param name="data"> Flash program for the symbol. </param> 
+		</member>
+		<member name="M:Unigine.IG.Symbol.resetFlashProgram">
+			<summary>
+			Starts the flash program anew.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.Symbol.setColor(Unigine.vec4)">
+			<summary>
+			Sets the color of the symbol.
+			</summary> 
+			<param name="color"> Color of the symbol in the RGBA range. </param> 
+		</member>
+		<member name="M:Unigine.IG.Symbol.setColorInherit(bool)">
+			<summary>
+			Toggles inheritance of the color from the parent symbol on and off.
+			</summary> 
+			<param name="value"> 1 to inherit the color from the parent symbol, otherwise 0. </param> 
+		</member>
+		<member name="M:Unigine.IG.Symbol.setLineWidth(float)">
+			<summary>
+			Sets the width of lines the symbol is drawn of.
+			</summary> 
+			<param name="value"> Width of the line. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolPolyline.addPoint(float,float)">
+			<summary>
+			Sets the point in the coordinates of the plane.
+			</summary> 
+			<param name="x"> Horizontal offset from the plane's origin. </param>
+			<param name="y"> Vertical offset from the plane's origin. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolPolyline.setFill(bool)">
+			<summary>
+			Toggles filling of the figure created by lines on and off.
+			</summary> 
+			<param name="value"> 1 to make the figure filled, otherwise 0. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolPolyline.setClosed(bool)">
+			<summary>
+			Enables and disables connection of the last point with the first point that makes the line closed.
+			</summary> 
+			<param name="value"> 1 to make the figure looped, otherwise 0. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolPolyline.setVertexOrderStrip(bool)">
+			<summary>
+			Toggles on and off creation of a triangle strip — a connected series of filled triangles formed from an ordered set of vertices. The first triangle is formed from the first three vertices. Each successive triangle is formed from the last two vertices and the next vertex in the set.
+			</summary> 
+			<param name="value"> 1 to enable a triangle strip, 0 to disable it. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolCircle.setFill(bool)">
+			<summary>
+			Toggles filling of the circle symbol on and off.
+			</summary> 
+			<param name="value"> 1 to make the circle symbol filled, otherwise 0. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolCircle.setCenter(float,float)">
+			<summary>
+			Sets the circle symbol center relative to the plane in the plane's UV coordinates.
+			</summary> 
+			<param name="x"> Horizontal offset from the plane's reference point in UV coordinates. </param>
+			<param name="y"> Vertical offset from the plane's reference point in UV coordinates. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolCircle.setRadius(float)">
+			<summary>
+			Sets the circle symbol radius in the plane's UV coordinates.
+			</summary> 
+			<param name="value"> Radius of the circle in UV coordinates. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolCircle.setInnerRadius(float)">
+			<summary>
+			Sets the inner radius of the circle symbol in the plane's UV coordinates.
+			</summary> 
+			<param name="value"> Inner radius of the circle in UV coordinates. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolCircle.setSector(float,float)">
+			<summary>
+			Creates a circle sector (an arc) by setting two angles that define its limits.
+			</summary> 
+			<param name="start_angle"> Starting angle of the sector. </param>
+			<param name="end_angle"> Ending angle of the sector. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolText.setText(char)">
+			<summary>
+			Sets the text to be displayed.
+			</summary> 
+			<param name="text"> Text to be displayed. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolText.setFont(int)">
+			<summary>
+			Sets the font using its identifier stored in the IG configuration file (ig_config.xml).
+			</summary> 
+			<param name="font_id"> Font identifier. </param> 
+		</member>
+		<member name="M:Unigine.IG.SymbolText.setFontSize(float)">
+			<summary>
+			Sets the font size.
+			</summary> 
+			<param name="font_size"> Font size. </param> 
+		</member>
+		<member name="M:Unigine.IG.Water.setWaterNode(ObjectWaterGlobalPtr)">
+			<summary>
+			Sets the Water Global object to be used.						The Water Global object is automatically found at the start of the project. Use this method only for dynamically created Water Global object.
+			</summary> 
+			<param name="value"> Water Global object. </param> 
+		</member>
+		<member name="M:Unigine.IG.Water.getWater">
+			<summary>
+			Returns the currently used Water Global object.
+			</summary>  
+			<returns>Water Global object.</returns>
+		</member>
+		<member name="M:Unigine.IG.Water.setHeigt(double)">
+			<summary>
+			Sets the height of the sea level in world coordinates.
+			</summary> 
+			<param name="value"> Sea level height, in units. </param> 
+		</member>
+		<member name="M:Unigine.IG.Water.setWaveParams(int,float)">
+			<summary>
+			Sets the wave parameters: Beaufort scale and direction.						Beaufort scale is switched immediately. Therefore, be careful when switching from big to low values.
+			</summary> 
+			<param name="height"> Beaufort value from 0 to 12. </param>
+			<param name="direction"> Angle relative to North. </param> 
+		</member>
+		<member name="M:Unigine.IG.Water.setClarity(float)">
+			<summary>
+			Sets clarity of water.
+			</summary> 
+			<param name="value"> Water clarity from 0 (unclear) to 1 (clear). </param> 
+		</member>
+		<member name="M:Unigine.IG.Water.getClarity">
+			<summary>
+			Returns clarity of water.
+			</summary>  
+			<returns>Water clarity from 0 to 1.</returns>
+		</member>
+		<member name="M:Unigine.IG.Water.setShorelineUpdate(bool)">
+			<summary>
+			Toggles the shoreline update on and off.						By default, the shoreline update is disabled. Toggling it on may cause spikes when the sea level changes, therefore, use carefully.
+			</summary> 
+			<param name="enable"> 1 to enable Shoreline update, 0 to disable. </param> 
+		</member>
+		<member name="M:Unigine.IG.Water.updateShoreline">
+			<summary>
+			Forced shoreline update.
+			</summary>  
+		</member>
+	</members>
+</doc>

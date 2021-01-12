@@ -1,0 +1,162 @@
+<?xml version='1.0'?>
+<doc>
+	<assembly>
+		<name>Unigine</name>
+	</assembly>
+	<members>
+		<member name="M:Unigine.Export.#ctor">
+			<summary>
+			</summary>  
+		</member>
+		<member name="M:Unigine.Export.get">
+			<summary>
+			</summary>  
+		</member>
+		<member name="M:Unigine.Export.registerExporter(char,int)">
+			<summary>
+			Registers a new exporter with a given name.
+			</summary> 
+			<param name="type_name"> Exporter type name. </param> 
+		</member>
+		<member name="M:Unigine.Export.unregisterExporter(char)">
+			<summary>
+			Unregisters the specified exporter type.
+			</summary> 
+			<param name="type_name"> Exporter type name. </param> 
+		</member>
+		<member name="M:Unigine.Export.createExporter(char) const">
+			<summary>
+			</summary> 
+			<param name="type_name"> Exporter type name. </param> 
+		</member>
+		<member name="M:Unigine.Export.createExporterByFileName(char) const">
+			<summary>
+			</summary>  
+		</member>
+		<member name="M:Unigine.Export.getExporterTypes const">
+			<summary>
+			</summary>  
+		</member>
+		<member name="M:Unigine.Export.getExporterTypes(int) const">
+			<summary>
+			</summary>  
+		</member>
+		<member name="M:Unigine.Export.isSupportedExtension(char) const">
+			<summary>
+			</summary>  
+		</member>
+		<member name="M:Unigine.Export.getSupportedExtensions const">
+			<summary>
+			</summary>  
+		</member>
+		<member name="M:Unigine.Export.getSupportedExtensions(int) const">
+			<summary>
+			</summary>  
+		</member>
+		<member name="M:Unigine.Export.getExporterTypeByExtension(char) const">
+			<summary>
+			</summary>  
+		</member>
+		<member name="M:Unigine.Export.doExport(NodePtr,char) const">
+			<summary>
+			</summary>  
+		</member>
+		<member name="M:Unigine.Exporter.#ctor">
+			<summary>
+			</summary>  
+		</member>
+		<member name="M:Unigine.Exporter.containsParameter(char) const">
+			<summary>
+			Returns a value indicating whether the list of export parameters includes a parameter with a given name.
+			</summary> 
+			<param name="name"> Parameter name. </param> 
+			<returns>1 if the list of export parameters includes a parameter with a given name; otherwise, 0.</returns>
+		</member>
+		<member name="M:Unigine.Exporter.setParameterInt(char,int)">
+			<summary>
+			Sets a new value for the specified integer parameter.
+			</summary> 
+			<param name="name"> Name of the integer parameter. </param>
+			<param name="v"> New value to be set. </param> 
+		</member>
+		<member name="M:Unigine.Exporter.getParameterInt(char) const">
+			<summary>
+			Returns the current value of the specified integer parameter.
+			</summary> 
+			<param name="name"> Name of the integer parameter. </param> 
+			<returns>Value of the integer parameter.</returns>
+		</member>
+		<member name="M:Unigine.Exporter.setParameterFloat(char,float)">
+			<summary>
+			Sets a new value for the specified float parameter.
+			</summary> 
+			<param name="name"> Name of the float parameter. </param>
+			<param name="v"> New value to be set. </param> 
+		</member>
+		<member name="M:Unigine.Exporter.getParameterFloat(char) const">
+			<summary>
+			Returns the current value of the specified float parameter.
+			</summary> 
+			<param name="name"> Name of the float parameter. </param> 
+			<returns>Value of the float parameter.</returns>
+		</member>
+		<member name="M:Unigine.Exporter.setParameterDouble(char,double)">
+			<summary>
+			Sets a new value for the specified double parameter.
+			</summary> 
+			<param name="name"> Name of the double parameter. </param>
+			<param name="v"> New value to be set. </param> 
+		</member>
+		<member name="M:Unigine.Exporter.getParameterDouble(char) const">
+			<summary>
+			Returns the current value of the specified double parameter.
+			</summary> 
+			<param name="name"> Name of the double parameter. </param> 
+			<returns>Value of the double parameter.</returns>
+		</member>
+		<member name="M:Unigine.Exporter.setParameterString(char,char)">
+			<summary>
+			Sets a new value for the specified string parameter.
+			</summary> 
+			<param name="name"> Name of the string parameter. </param>
+			<param name="v"> New value to be set. </param> 
+		</member>
+		<member name="M:Unigine.Exporter.getParameterString(char) const">
+			<summary>
+			Returns the current value of the specified string parameter.
+			</summary> 
+			<param name="name"> Name of the string parameter. </param> 
+			<returns>Value of the string parameter.</returns>
+		</member>
+		<member name="M:Unigine.Exporter.init">
+			<summary>
+			Initializes the exporter.
+			</summary>  
+		</member>
+		<member name="M:Unigine.Exporter.doExport(NodePtr,char)">
+			<summary>
+			</summary> 
+			<param name="root_node"> Root node of the hierarchy to be exported. </param>
+			<param name="output_filepath"> Output path to be used to store generated file(s) with exported data. </param> 
+		</member>
+		<member name="M:Unigine.Exporter.deinit">
+			<summary>
+			</summary>  
+		</member>
+		<member name="M:Unigine.Exporter.onInit">
+			<summary>
+			</summary>  
+		</member>
+		<member name="M:Unigine.Exporter.onExport(NodePtr,char)">
+			<summary>
+			</summary> 
+			<param name="root_node"> Root node of the hierarchy to be exported. </param>
+			<param name="output_filepath"> Output path to be used to store generated file(s) with exported data. </param> 
+			<returns>true if export operation for the specified output path was successful; otherwise, false.</returns>
+		</member>
+		<member name="M:Unigine.Exporter.onDeinit">
+			<summary>
+			</summary>  
+		</member>
+	</members>
+</doc>

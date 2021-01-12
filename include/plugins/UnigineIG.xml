@@ -1,0 +1,766 @@
+<?xml version='1.0'?>
+<doc>
+	<assembly>
+		<name>Unigine</name>
+	</assembly>
+	<members>
+		<member name="M:Unigine.IG.CollisionSegment.getID">
+			<summary>
+			Returns the ID of the collision segment.
+			</summary>  
+			<returns>Collision segment ID.</returns>
+		</member>
+		<member name="M:Unigine.IG.CollisionSegment.getEntity">
+			<summary>
+			Returns the entity to which the collision segment is assigned.
+			</summary>  
+			<returns>Entity to which the collision segment is assigned.</returns>
+		</member>
+		<member name="M:Unigine.IG.CollisionSegment.isEnable">
+			<summary>
+			Returns a value indicating if the collision segment is enabled.
+			</summary>  
+			<returns>1 if the collision segment is enabled; otherwise, 0</returns>
+		</member>
+		<member name="M:Unigine.IG.CollisionSegment.setEnable(int)">
+			<summary>
+			Enables or disables the collision segment.
+			</summary> 
+			<param name="value"> 1 to enable the collision segment; 0 - to disable it. </param> 
+		</member>
+		<member name="M:Unigine.IG.CollisionSegment.setStartPoint(Unigine.vec3)">
+			<summary>
+			Sets the coordinates of the start point of the collision segment.
+			</summary> 
+			<param name="point"> Coordinates of the start point of the collision segment, in the coordinate system of the entity. </param> 
+		</member>
+		<member name="M:Unigine.IG.CollisionSegment.getStartPoint">
+			<summary>
+			Returns the current coordinates of the start point of the collision segment.
+			</summary>  
+			<returns>Coordinates of the start point of the collision segment, in the coordinate system of the entity.</returns>
+		</member>
+		<member name="M:Unigine.IG.CollisionSegment.setEndPoint(Unigine.vec3)">
+			<summary>
+			Sets the coordinates of the end point of the collision segment.
+			</summary> 
+			<param name="point"> Coordinates of the end point of the collision segment, in the coordinate system of the entity. </param> 
+		</member>
+		<member name="M:Unigine.IG.CollisionSegment.getEndPoint">
+			<summary>
+			Returns the current coordinates of the end point of the collision segment.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.CollisionSegment.setMaterialMask(int)">
+			<summary>
+			Sets the material mask for the collision segment. This parameter specifies the environmental and cultural features to be included in or excluded from consideration for collision testing.
+			</summary> 
+			<param name="mask"> Integer representing a bit mask, each bit of which represents a range of material code values. Setting that bit to 1 will cause the IG to register hits with materials within the corresponding range. </param> 
+		</member>
+		<member name="M:Unigine.IG.CollisionSegment.getMaterialMask">
+			<summary>
+			Gets the material mask for the collision segment. This parameter specifies the environmental and cultural features to be included in or excluded from consideration for collision testing.
+			</summary>  
+			<returns>Integer representing a bit mask, each bit of which represents a range of material code values. Setting that bit to 1 will cause the IG to register hits with materials within the corresponding range.</returns>
+		</member>
+		<member name="M:Unigine.IG.CollisionSegment.setCollisionDetectedCallback(Unigine.CallbackBase)">
+			<summary>
+			Sets a callback on detecting a collision with the collision segment. This function can be used to define specific actions to be performed when a collision with the segment is detected.
+			</summary> 
+			<param name="func"> Callback pointer. </param> 
+		</member>
+		<member name="M:Unigine.IG.CollisionVolume.getID">
+			<summary>
+			Returns the ID of the collision volume.
+			</summary>  
+			<returns>Collision volume ID.</returns>
+		</member>
+		<member name="M:Unigine.IG.CollisionVolume.getEntity">
+			<summary>
+			Returns the entity to which the collision volume is assigned.
+			</summary>  
+			<returns>Entity to which the collision volume is assigned.</returns>
+		</member>
+		<member name="M:Unigine.IG.CollisionVolume.setEnable(int)">
+			<summary>
+			Enables or disables the collision volume.
+			</summary> 
+			<param name="value"> 1 to enable the collision volume; 0 - to disable it. </param> 
+		</member>
+		<member name="M:Unigine.IG.CollisionVolume.isEnable">
+			<summary>
+			Returns a value indicating if the collision volume is enabled.
+			</summary>  
+			<returns>1 if the collision volume is enabled; otherwise, 0</returns>
+		</member>
+		<member name="M:Unigine.IG.CollisionVolume.setPosition(Unigine.vec3)">
+			<summary>
+			Sets the coordinates of the center of the collision volume.
+			</summary> 
+			<param name="value"> Coordinates of the center of the collision volume, in the coordinate system of the entity. </param> 
+		</member>
+		<member name="M:Unigine.IG.CollisionVolume.getPosition">
+			<summary>
+			Returns the current coordinates of the center of the collision volume.
+			</summary>  
+			<returns>Current coordinates of the center of the collision volume, in the coordinate system of the entity.</returns>
+		</member>
+		<member name="M:Unigine.IG.CollisionVolume.setRotation(Unigine.quat)">
+			<summary>
+			Sets the rotation of the cuboid-shaped collision volume. The rotation quaternion is obtained by converting NED euler rotation (roll, pitch, yaw) to a quaternion via the Converter::eulerNEDToRotation() method.
+			</summary> 
+			<param name="value"> Quaternion defining rotation of the cuboid-shaped collision volume. </param> 
+		</member>
+		<member name="M:Unigine.IG.CollisionVolume.getRotation">
+			<summary>
+			Returns the current rotation of the cuboid-shaped collision volume. You can convert the obtained rotation quaternion to NED euler rotation (roll, pitch, yaw) via the Converter::rotationToEulerNED() method.
+			</summary>  
+			<returns>Quaternion defining rotation of the cuboid-shaped collision volume.</returns>
+		</member>
+		<member name="M:Unigine.IG.CollisionVolume.setSize(Unigine.vec3)">
+			<summary>
+			Sets the size of the cuboid-shaped collision volume.
+			</summary> 
+			<param name="size"> Vector defining the size of the cuboid-shaped collision volume (depth, width, height). Each component is specified in meters. </param> 
+		</member>
+		<member name="M:Unigine.IG.CollisionVolume.setRadius(float)">
+			<summary>
+			Sets the radius of the spherical collision volume.
+			</summary> 
+			<param name="radius"> Radius of the spherical collision volume, in meters. </param> 
+		</member>
+		<member name="M:Unigine.IG.CollisionVolume.setCollisionDetectedCallback(Unigine.CallbackBase)">
+			<summary>
+			Sets a callback on detecting a collision with the collision volume. This function can be used to define specific actions to be performed when a collision with the segment is detected.
+			</summary> 
+			<param name="func"> Callback pointer. </param> 
+		</member>
+		<member name="M:Unigine.IG.Converter.worldToGeodetic(NodePtr)">
+			<summary>
+			Returns the position of the specified node in geodetic coordinates.
+			</summary> 
+			<param name="node"> Node, for which a geodetic coordinates are to be obtained. </param> 
+			<returns>Node's position in geodetic coordinates (lat, lon, alt).</returns>
+		</member>
+		<member name="M:Unigine.IG.Converter.worldToGeodetic(Unigine.Vec3)">
+			<summary>
+			Returns geodetic coordinates of a point with the specified world coordinates.
+			</summary> 
+			<param name="world_pos"> World coordinates of the point to be converted (X, Y, Z). </param> 
+			<returns>Geodetic coordinates of the point (lat, lon, alt).</returns>
+		</member>
+		<member name="M:Unigine.IG.Converter.geodeticToWorld(Unigine.dvec3)">
+			<summary>
+			Returns world coordinates of a point with the specified geodetic coordinates.
+			</summary> 
+			<param name="geo_pos"> Geodetic coordinates of the point to be converted (lat, lon, alt). </param> 
+			<returns>World coordinates of the point (X, Y, Z).</returns>
+		</member>
+		<member name="M:Unigine.IG.Converter.ENUtoNED(Unigine.Vec3)">
+			<summary>
+			Converts the coordinates of a point specified in the ENU (East-North-Up) system to NED (North-East-Down).
+			</summary> 
+			<param name="enu_pos"> Coordinates of a point in the ENU (East-North-Up) system. </param> 
+			<returns>Coordinates of the point in the NED (North-East-Down) system.</returns>
+		</member>
+		<member name="M:Unigine.IG.Converter.NEDtoENU(Unigine.Vec3)">
+			<summary>
+			Converts the coordinates of a point specified in the NED (North-East-Down) system to ENU (East-North-Up).
+			</summary> 
+			<param name="ned_pos"> Coordinates of a point in the NED (North-East-Down) system. </param> 
+			<returns>Coordinates of the point in the ENU (East-North-Up) system.</returns>
+		</member>
+		<member name="M:Unigine.IG.Converter.getZeroRotation(Unigine.dvec3)">
+			<summary>
+			Returns the zero-rotation for the specified target geodetic position.											Unigine uses ENU orientation!																					final_rotation = zero_rotation * entity_local_rotation																						entity_local_rotation = final_rotation * inverse(zero_rotation)
+			</summary> 
+			<param name="geo_pos"> Target geodetic position coordinates (lat, lon, alt). </param> 
+			<returns>Zero-rotation quaternion for the specified target geodetic position.</returns>
+		</member>
+		<member name="M:Unigine.IG.Converter.getZeroUpDirection(Unigine.dvec3,Unigine.vec3)">
+			<summary>
+			Returns the zero "up"-vector coordinates for the specified target geodetic position.
+			</summary> 
+			<param name="geo_pos"> Target geodetic position coordinates (lat, lon, alt). </param>
+			<param name="up"> Zero "up"-vector coordinates for the specified target geodetic position. </param> 
+		</member>
+		<member name="M:Unigine.IG.Converter.getZeroDirections(Unigine.dvec3,Unigine.vec3,Unigine.vec3,Unigine.vec3)">
+			<summary>
+			Gets zero directions (east, north, up) for the specified target geodetic position and puts them to the specified vectors.					Unigine uses ENU orientation!
+			</summary> 
+			<param name="geo_pos"> Target geodetic position coordinates (lat, lon, alt). </param>
+			<param name="east"> Vector to which the east direction vector coordinates are to be put. </param>
+			<param name="north"> Vector to which the north direction vector coordinates are to be put. </param>
+			<param name="up"> Vector to which the up direction vector coordinates are to be put. </param> 
+		</member>
+		<member name="M:Unigine.IG.Converter.getZeroBasis(Unigine.dvec3)">
+			<summary>
+			Returns the whole zero basis for the specified target geodetic position.
+			</summary> 
+			<param name="geo_pos"> Target geodetic position coordinates (lat, lon, alt). </param> 
+			<returns>Zero basis for the specified target geodetic position.</returns>
+		</member>
+		<member name="M:Unigine.IG.Converter.eulerENUToRotation(Unigine.vec3)">
+			<summary>
+			Converts the specified Euler rotation vector in ENU (East-North-Up) coordinates to a rotation quaternion.											Unigine uses ENU orientation!						Axis order: Yaw -&gt; Pitch -&gt; Roll (ENU: Z -&gt; X -&gt; Y, NED: Z -&gt; Y -&gt; X)																					final_rotation = zero_rotation * entity_local_rotation																						entity_local_rotation = final_rotation * inverse(zero_rotation)
+			</summary> 
+			<param name="euler"> Vector representing rotation (roll, pitch, yaw) in ENU (East-North-Up) coordinates. </param> 
+			<returns>Rotation quaternion.</returns>
+		</member>
+		<member name="M:Unigine.IG.Converter.eulerNEDToRotation(Unigine.vec3)">
+			<summary>
+			Converts the specified Euler rotation vector in NED (North-East-Down) coordinates to a rotation quaternion.											Unigine uses ENU orientation!						Axis order: Yaw -&gt; Pitch -&gt; Roll (ENU: Z -&gt; X -&gt; Y, NED: Z -&gt; Y -&gt; X)																					final_rotation = zero_rotation * entity_local_rotation																						entity_local_rotation = final_rotation * inverse(zero_rotation)
+			</summary> 
+			<param name="euler"> Vector representing Euler rotation (roll, pitch, yaw) in NED (North-East-Down) coordinates. </param> 
+			<returns>Rotation quaternion.</returns>
+		</member>
+		<member name="M:Unigine.IG.Converter.rotationToEulerENU(Unigine.quat)">
+			<summary>
+			Converts the specified rotation quaternion to Euler rotation vector in ENU (East-North-Up) coordinates.											Unigine uses ENU orientation!						Axis order: Yaw -&gt; Pitch -&gt; Roll (ENU: Z -&gt; X -&gt; Y, NED: Z -&gt; Y -&gt; X)																					final_rotation = zero_rotation * entity_local_rotation																						entity_local_rotation = final_rotation * inverse(zero_rotation)
+			</summary> 
+			<param name="rotation"> Rotation quaternion. </param> 
+			<returns>Vector representing rotation (roll, pitch, yaw) in ENU (East-North-Up) coordinates.</returns>
+		</member>
+		<member name="M:Unigine.IG.Converter.rotationToEulerNED(Unigine.quat)">
+			<summary>
+			Converts the specified rotation quaternion to Euler rotation vector in NED (North-East-Down) coordinates.											Unigine uses ENU orientation!						Axis order: Yaw -&gt; Pitch -&gt; Roll (ENU: Z -&gt; X -&gt; Y, NED: Z -&gt; Y -&gt; X)																					final_rotation = zero_rotation * entity_local_rotation																						entity_local_rotation = final_rotation * inverse(zero_rotation)
+			</summary> 
+			<param name="rotation"> Rotation quaternion. </param> 
+			<returns>Vector representing Euler rotation (roll, pitch, yaw) in NED (North-East-Down) coordinates.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.getID">
+			<summary>
+			Returns the unique ID of the entity instance.
+			</summary>  
+			<returns>Entity ID.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.getNode">
+			<summary>
+			Returns the node assigned to the entity.
+			</summary>  
+			<returns>Node assigned to the entity.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.getNodeReference">
+			<summary>
+			Returns the node reference assigned to the entity.
+			</summary>  
+			<returns>NodeReference assigned to the entity.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.setGeoPosition(Unigine.Math.Vec3)">
+			<summary>
+			Sets the entity position in geo-coordinates (lat, lon, alt).
+			</summary> 
+			<param name="position"> New geo-coordinates of entity position to be set. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.getGeoPosition">
+			<summary>
+			Returns the current entity position in geo-coordinates (lat, lon, alt).
+			</summary>  
+			<returns>Entity position coordinates.Geo-coordinates will be returned if there is no parent entity assigned, otherwise - local coordinates will be returned.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.setRotationEuler(Unigine.Math.vec3)">
+			<summary>
+			Sets the entity rotation.
+			</summary> 
+			<param name="euler"> Entity rotation euler angles to set. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.setRotationEuler(Unigine.Math.vec3,double)">
+			<summary>
+			Sets the entity rotation at the specified time.
+			</summary> 
+			<param name="euler"> Entity rotation euler angles to set. </param>
+			<param name="timestamp"> Timestamp, indicating the time when rotation is to be set. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.getRotationEuler">
+			<summary>
+			Returns the current entity rotation euler angles.
+			</summary>  
+			<returns>Entity rotation euler angles.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.setType(int)">
+			<summary>
+			Sets the type of the entity. Entity type ID is defined in the entity definition section of the IG configuration file as follows:				0 removes the entity from the scene.
+			</summary> 
+			<param name="id"> Entity type to be set. 0 removes the entity from the scene. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.getType">
+			<summary>
+			Returns the type of the current entity. Entity type ID is defined in the entity definition section of the IG configuration file as follows:
+			</summary>  
+			<returns>Entity type.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.setState(int)">
+			<summary>
+			Sets the state of the entity.
+			</summary> 
+			<param name="id"> Entity state to be set. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.getState">
+			<summary>
+			Returns the current entity state.
+			</summary>  
+			<returns>Current entity state.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.setCollision(int)">
+			<summary>
+			Sets the value indicating if collision detecton shall be enabled for the entity.
+			</summary> 
+			<param name="enabled"> 1 to enable collision detecton for the entity; 0 - to disable. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.getCollision">
+			<summary>
+			Returns the value indicating if collision detecton shall be enabled for the entity.
+			</summary>  
+			<returns>Collision Detection Enable parameter value. 1 collision detecton for the entity shall be enabled; 0 - collision detecton for the entity shall be enabled.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.setParent(Entity)">
+			<summary>
+			Attaches the entity as a child to the specified parent entity.
+			</summary> 
+			<param name="entity"> Parent entity. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.unparent">
+			<summary>
+			Detaches the entity from its parent.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.Entity.getParentID">
+			<summary>
+			Returns the ID of the entity parent.
+			</summary>  
+			<returns>Entity parent ID.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.getAttachState">
+			<summary>
+			Returns the value of the Attach State parameter. It specifies whether the entity is be attached as a child to a parent.
+			</summary>  
+			<returns>Attach State parameter value. 1 the entity shall be or remain attached to the entity specified by the Parent ID parameter; 0 - the entity shall be detached from its parent.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.setAlpha(int)">
+			<summary>
+			Sets the alpha value, that determines transparency of entity geometry.
+			</summary> 
+			<param name="byte_value"> Alpha value to be set. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.getAlpha">
+			<summary>
+			Returns the current alpha value, that determines transparency of entity geometry.
+			</summary>  
+			<returns>Alpha value.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.setInheritAlpha(int)">
+			<summary>
+			Sets the value indicating if the entity uses the alpha value of its parent.
+			</summary> 
+			<param name="enabled"> 1 the entity shall use the alpha value of its parent; 0 - the entity shall use its own alpha value. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.isInheritAlpha">
+			<summary>
+			Returns the value indicating if the entity uses the alpha value of its parent.
+			</summary>  
+			<returns>1 if the entity uses the alpha value of its parent; otherwise, 0.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.setGround(Unigine.Ptr{ObjectTerrainGlobal})">
+			<summary>
+			Sets the terrain to be used by the entity for ground clamping.
+			</summary> 
+			<param name="terrain"> Global terrain to be used by the entity for ground clamping. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.setGroundClamp(int)">
+			<summary>
+			Sets the value of the Ground/Ocean Clamp parameter.
+			</summary> 
+			<param name="clamp"> Ground/Ocean Clamp parameter value. One of the clamp values. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.getGroundClamp">
+			<summary>
+			Returns the value of the Ground/Ocean Clamp parameter.
+			</summary>  
+			<returns>Ground/Ocean Clamp parameter value. One of the clamp values.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.setAnimationDirection(int)">
+			<summary>
+			Returns the entity's animation playback direction.
+			</summary> 
+			<param name="animation_direction"> Direction of the entity's animation playback. One of the ANIM_DIR_* values. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.getAnimationDirection">
+			<summary>
+			Returns the current entity's animation playback direction.
+			</summary>  
+			<returns>Direction of the entity's animation playback. One of the ANIM_DIR_* values.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.setAnimationLoop(int)">
+			<summary>
+			Returns the entity's animation playback mode.
+			</summary> 
+			<param name="animation_loop"> Mode of the entity's animation playback. One of the ANIM_LOOP_* values. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.getAnimationLoop">
+			<summary>
+			Returns the current entity's animation playback mode.
+			</summary>  
+			<returns>Mode of the entity's animation playback. One of the ANIM_LOOP_* values.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.setAnimationState(int)">
+			<summary>
+			Returns the entity's animation playback state.
+			</summary> 
+			<param name="animation_state"> State of the entity's animation playback. One of the ANIM_STATE_* values. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.getAnimationState">
+			<summary>
+			Returns the current entity's animation playback state.
+			</summary>  
+			<returns>State of the entity's animation playback. One of the ANIM_STATE_* values.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.setInterpolation(int)">
+			<summary>
+			Sets a value indicating if interpolation and extrapolation are enabled.
+			</summary> 
+			<param name="id"> 1 to enable interpolation and extrapolation; 0 - to disable. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.isInterpolation">
+			<summary>
+			Returns a value indicating if interpolation and extrapolation are enabled.
+			</summary>  
+			<returns>1 if interpolation and extrapolation are enabled; otherwise, 0.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.setVelocity(Unigine.Math.Vec3,Unigine.Math.vec3)">
+			<summary>
+			Sets linear and angular velocity for the entity.
+			</summary> 
+			<param name="linear"> Linear velocity vector to be set. </param>
+			<param name="angular_deg"> Angular velocity vector (roll, pitch, yaw), in degrees per second. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.setAcceleration(Unigine.Math.Vec3,Unigine.Math.vec3)">
+			<summary>
+			Sets linear and angular acceleration for the entity.
+			</summary> 
+			<param name="linear"> Linear acceleration vector to be set. </param>
+			<param name="angular_deg"> Angular acceleration vector (roll, pitch, yaw), in degrees per second. </param> 
+		</member>
+		<member name="M:Unigine.IG.Entity.getComponent(int)">
+			<summary>
+			Returns the interface of the specified component.
+			</summary> 
+			<param name="id"> ID of the component. </param> 
+			<returns>Component interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.getArticulatedPart(int)">
+			<summary>
+			Returns the interface of the specified articulated part.
+			</summary> 
+			<param name="id"> ID of the articulated part. </param> 
+			<returns>Articulated part interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.getCollisionSegment(int)">
+			<summary>
+			Returns the interface of the specified collision segment.
+			</summary> 
+			<param name="id"> ID of the collision segment. </param> 
+			<returns>Collision segment interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.getCollisionSegments">
+			<summary>
+			Returns the list of all collision segments associated with the entity.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.Entity.getCollisionVolume(int)">
+			<summary>
+			Returns the interface of the specified collision volume.
+			</summary> 
+			<param name="id"> ID of the collision volume. </param> 
+			<returns>Collision volume interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Entity.getCollisionVolumes">
+			<summary>
+			Returns the list of all collision volumes associated with the entity.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.Entity.getObjects">
+			<summary>
+			Returns the vector of all nodes, that constitute the entity.
+			</summary>  
+			<returns>Vector of nodes, that constitute the entity.</returns>
+		</member>
+		<member name="F:Unigine.IG.Entity.NO_CLAMP">
+			<summary>
+			Altitude clamping for entity is disabled.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.Entity.NON_CONFORMAL">
+			<summary>
+			Altitude parameter specifies an offset of the entity above the ground level.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.Entity.CONFORMAL">
+			<summary>
+			Altitude parameter specifies an offset of the entity above the sea level.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.Entity.ANIM_STATE_STOP">
+			<summary>
+			Stop entity animation playback.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.Entity.ANIM_STATE_PAUSE">
+			<summary>
+			Pause entity animation playback.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.Entity.ANIM_STATE_PLAY">
+			<summary>
+			Start entity animation playback.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.Entity.ANIM_STATE_CONTINUE">
+			<summary>
+			Resume entity animation playback.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.Entity.ANIM_DIR_FORWARD">
+			<summary>
+			Forward direction of the entity animation playback.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.Entity.ANIM_DIR_BACKWARD">
+			<summary>
+			Backward direction of the entity animation playback.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.Entity.ANIM_LOOP_ONESHOT">
+			<summary>
+			Oneshot mode of the entity animation playback.
+		</summary>
+		</member>
+		<member name="F:Unigine.IG.Entity.ANIM_LOOP_CONTINUOUS">
+			<summary>
+			Continuous mode of the entity animation playback.
+		</summary>
+		</member>
+		<member name="M:Unigine.IG.SkyMap.setTimezone(int,int,int)">
+			<summary>
+			Sets the time zone to be used for the simulation. The image generator is configured to use Greenwhich time zone by default.
+			</summary> 
+			<param name="hour"> An integer between 0 (midnight) and 23 (11 p.m.) local time to be set as hours value. </param>
+			<param name="min"> An integer between 0 and 59 to be set as minutes value. </param>
+			<param name="sec"> An integer between 0 and 59 to be set as seconds value. </param> 
+		</member>
+		<member name="M:Unigine.IG.SkyMap.setDateTime(time_t)">
+			<summary>
+			Sets the time of the simulation.
+			</summary> 
+			<param name="time"> Time of the simulation to be set, number of seconds since January 1, 1970 </param> 
+		</member>
+		<member name="M:Unigine.IG.SkyMap.setDateTime(int,int,int,int,int,int)">
+			<summary>
+			Sets the current date and time.
+			</summary> 
+			<param name="sec"> An integer between 0 and 59 to be set as seconds value. </param>
+			<param name="min"> An integer between 0 and 59 to be set as minutes value. </param>
+			<param name="hour"> An integer between 0 (midnight) and 23 (11 p.m.) local time to be set as hours value. </param>
+			<param name="day"> An integer between 1 and 31 to be set as day value. </param>
+			<param name="month"> An integer between 1 and 12 to be set as month value. </param>
+			<param name="year"> An integer to be set as year value. </param> 
+		</member>
+		<member name="M:Unigine.IG.SkyMap.getDateTime">
+			<summary>
+			Returns the current time of the simulation.
+			</summary>  
+			<returns>Current time of the simulation, number of seconds since January 1, 1970</returns>
+		</member>
+		<member name="M:Unigine.IG.SkyMap.setContinuousTime(bool)">
+			<summary>
+			Enables or disables continuous time of day. When enabled the image generator will continuously update the time of day. Otherwise the time and date once set will remain unchanged.
+			</summary> 
+			<param name="enable"> true to enable continuous time of day; false - to use static time. </param> 
+		</member>
+		<member name="M:Unigine.IG.SkyMap.isContinuousTime">
+			<summary>
+			Returns a value indicating if the time of day is continuously updated by the image generator ore remains static.
+			</summary>  
+			<returns>true if the time of day is continuously updated by the image generator; otherwise, false.</returns>
+		</member>
+		<member name="M:Unigine.IG.SkyMap.setStarfieldIntensity(float)">
+			<summary>
+			Sets the intensity of the star field.
+			</summary> 
+			<param name="intensity"> Star field intensity value to be set, within the [0.0f, 1.0f] range. The higher the value, the brighter the stars will be. </param> 
+		</member>
+		<member name="M:Unigine.IG.SkyMap.getStarfieldIntensity">
+			<summary>
+			Returns the current star field intensity value.
+			</summary>  
+			<returns>Current star field intensity value, within the [0.0f, 1.0f] range. The higher the value, the brighter the stars will be.</returns>
+		</member>
+		<member name="M:Unigine.IG.SkyMap.setSunEnabled(bool)">
+			<summary>
+			Sets a value indicating if the Sun is to be rendered or not.
+			</summary> 
+			<param name="enable"> true to enable rendering of the Sun; false - to disable it. </param> 
+		</member>
+		<member name="M:Unigine.IG.SkyMap.isSunEnabled">
+			<summary>
+			Returns a value indicating if the Sun is rendered or not.
+			</summary>  
+			<returns>true if the Sun is rendered; otherwise, false.</returns>
+		</member>
+		<member name="M:Unigine.IG.SkyMap.getSunNode">
+			<summary>
+			Returns a pointer to the node currently used to represent the Sun. Nodes for the Sun and the Moon can be assigned via the UnigineEditor.
+			</summary>  
+			<returns>Pointer to the node currently used to represent the Sun.</returns>
+		</member>
+		<member name="M:Unigine.IG.SkyMap.setMoonEnabled(bool)">
+			<summary>
+			Sets a value indicating if the Moon is to be rendered or not.
+			</summary> 
+			<param name="enable"> true to enable rendering of the Moon; false - to disable it. </param> 
+		</member>
+		<member name="M:Unigine.IG.SkyMap.isMoonEnabled">
+			<summary>
+			Returns a value indicating if the Moon is rendered or not.
+			</summary>  
+			<returns>true if the Moon is rendered; otherwise, false.</returns>
+		</member>
+		<member name="M:Unigine.IG.SkyMap.getMoonNode">
+			<summary>
+			Returns a pointer to the node currently used to represent the Moon. Nodes for the Sun and the Moon can be assigned via the UnigineEditor.
+			</summary>  
+			<returns>Pointer to the node currently used to represent the Moon.</returns>
+		</member>
+		<member name="M:Unigine.IG.SkyMap.setStarfieldEnabled(bool)">
+			<summary>
+			Sets a value indicating if the star field is to be rendered or not.
+			</summary> 
+			<param name="enable"> true to enable star field rendering; false - to disable it. </param> 
+		</member>
+		<member name="M:Unigine.IG.SkyMap.isStarfieldEnabled">
+			<summary>
+			Returns a value indicating if the star field is rendered or not.
+			</summary>  
+			<returns>true if the star field is rendered; otherwise, false.</returns>
+		</member>
+		<member name="M:Unigine.IG.SkyMap.refresh">
+			<summary>
+			Refreshes the sky map according to its current settings. This method should be called after setting sky map's parameters to apply them. Sky map change callbacks are called on refresh.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.SkyMap.addCallbackRefresh(void,Unigine.CallbackBase)">
+			<summary>
+			Adds a callback on changing sky map state.
+			</summary> 
+			<param name="subscriber"> Callback subscriber ID. This ID can be used to remove this callback when necessary. </param>
+			<param name="callback"> Callback pointer. </param> 
+		</member>
+		<member name="M:Unigine.IG.SkyMap.removeCallbackRefresh(void)">
+			<summary>
+			Removes a callback on changing sky map state for the specified subscriber.
+			</summary> 
+			<param name="subscriber"> Callback subscriber ID specified when adding it. </param> 
+		</member>
+		<member name="M:Unigine.IG.Meteo.refresh">
+			<summary>
+			Refreshes global meteo conditions according to current settings. This method should be called after setting global meteo conditions to apply them. Weather change callbacks are called on refresh.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.Meteo.getRegion(int64_t)">
+			<summary>
+			Returns the interface of a weather region/layer by its identifier. If no weather region/layer with such id exists, it will be created.
+			</summary> 
+			<param name="id"> Weather region identifier. </param> 
+			<returns>Weather region interface.</returns>
+		</member>
+		<member name="M:Unigine.IG.Meteo.getRegions">
+			<summary>
+			Returns the list of all weather regions/layers.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.Meteo.removeRegion(int64_t)">
+			<summary>
+			Removes a weather region/layer with a given identifier.
+			</summary> 
+			<param name="id"> Identifier of the weather region/layer to be removed. </param> 
+		</member>
+		<member name="M:Unigine.IG.Meteo.clearRegions">
+			<summary>
+			Removes all weather regions and layers.
+			</summary>  
+		</member>
+		<member name="M:Unigine.IG.Meteo.getMeanWindSpeed(Unigine.dvec3)">
+			<summary>
+			Returns an average wind speed at the specified geographic location. This method combines wind parameter of all weather regions and layers affecting this point.
+			</summary> 
+			<param name="world_pos"> Geographic coordinates of a point (lat, lon, alt), for which an average wind speed and direction are to be calculated. </param> 
+			<returns>Vector defining average wind speed (in meters per second) in all directions for the given location.</returns>
+		</member>
+		<member name="M:Unigine.IG.Meteo.setWindSpeed(Unigine.vec3)">
+			<summary>
+			Sets the global wind speed and direction.
+			</summary> 
+			<param name="wind_speed"> Vector defining wind speed in all directions, in meters per second. </param> 
+		</member>
+		<member name="M:Unigine.IG.Meteo.setVisibilityDistance(float)">
+			<summary>
+			Sets the global visibility range through the atmosphere.
+			</summary> 
+			<param name="visibility_distance"> Global visibility range, in meters. </param> 
+		</member>
+		<member name="M:Unigine.IG.Meteo.setMaxPrecipitationAltitude(double)">
+			<summary>
+			Sets the upper height limit for precipitation. There is no precipitation observed above this level.
+			</summary> 
+			<param name="max_precipitation_altitude"> Upper height limit for precipitation, in meters. </param> 
+		</member>
+		<member name="M:Unigine.IG.Meteo.getMaxPrecipitationAltitude">
+			<summary>
+			Returns the current upper height limit for precipitation. There is no precipitation observed above this level.
+			</summary>  
+			<returns>Current upper height limit for precipitation, in meters.</returns>
+		</member>
+		<member name="M:Unigine.IG.Meteo.getLowerCloudAltitude">
+			<summary>
+			Returns the current lower altitude for clouds.
+			</summary>  
+			<returns>Lower altitude for clouds, in meters.</returns>
+		</member>
+		<member name="M:Unigine.IG.Meteo.setCloudsOptimization(int)">
+			<summary>
+			Enables or disables simplified rendering mode for clouds.					When clouds are viewed from the ground (at significant distance) and the viewer's velocity is less than 200 units per second, enabling this parameter can provide a significant gain in performance.
+			</summary> 
+			<param name="enable"> 1 to enable simplified rendering for clouds; 0 - to disable it. </param> 
+		</member>
+		<member name="M:Unigine.IG.Meteo.setVisibilityTransitionTime(float)">
+			<summary>
+			Sets the time period for gradual change of visibility range.					This parameter can also be specified via the configuration file (ig_config.xml).
+			</summary> 
+			<param name="time"> Time, in seconds, for gradual change of visibility range. </param> 
+		</member>
+		<member name="M:Unigine.IG.Meteo.setPrecipitationsTransitionTime(float)">
+			<summary>
+			Sets the time period for gradual change of precipitation.					This parameter can also be specified via the configuration file (ig_config.xml).
+			</summary> 
+			<param name="time"> Time, in seconds, for gradual change of precipitation. </param> 
+		</member>
+		<member name="M:Unigine.IG.Meteo.setCloudTransitionTime(float)">
+			<summary>
+			Sets the time period for gradual change of cloudiness.					This parameter can also be specified via the configuration file (ig_config.xml).
+			</summary> 
+			<param name="time"> Time, in seconds, for gradual change of cloudiness. </param> 
+		</member>
+		<member name="M:Unigine.IG.Meteo.addCallbackMeteoChanged(void,Unigine.CallbackBase)">
+			<summary>
+			Adds a callback on changing global meteo conditions.
+			</summary> 
+			<param name="subscriber"> Callback subscriber ID. This ID can be used to remove this callback when necessary. </param>
+			<param name="callback"> Callback pointer. </param> 
+		</member>
+		<member name="M:Unigine.IG.Meteo.removeCallbackMeteoChanged(void)">
+			<summary>
+			Removes a callback on changing global meteo conditions for the specified subscriber.
+			</summary> 
+			<param name="subscriber"> Callback subscriber ID specified when adding it. </param> 
+		</member>
+	</members>
+</doc>

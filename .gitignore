@@ -1,0 +1,26 @@
+ # from Unigine doc 
+/.thumbnails
+/bin -> be careful, on rely on SDK browser configure project to restore all required .dll, but some are currently forgotten.. e.g. CIGIConnector_double_x64, HLAConnector_double_x64, IG_double_x64
+/launch_debug.bat
+/launch_editor.bat
+/launch_release.bat
+/bin/*
+# from Unigine forum
+/source/*.vcxproj.user
+/source/*.VC.db
+/source/*.opendb
+
+# additional 
+/data/.thumbnails
+/data/.runtimes
+/data/ComponentSystem -> we put under versioning only custom .prop not all automatically generated..
+/data/guids.db -> should it be under versioning?
+/data/*.cache
+/data/entities/*.umount -> we ignore these mount points.. explanation in another post
+/data/landscape/*.umount-> we ignore these mount points.. explanation in another post
+/source/.vs/
+/source/x64 
+
+/.thumbnails/
+*.obj
+*.tlog
