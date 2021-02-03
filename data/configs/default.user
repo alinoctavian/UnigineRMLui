@@ -28,12 +28,12 @@
 	<render_show_occluder>0</render_show_occluder>
 	<render_show_queries>0</render_show_queries>
 	<render_show_scissors>0</render_show_scissors>
-	<render_show_textures>2</render_show_textures>
+	<render_show_textures>0</render_show_textures>
 	<render_show_textures_number>7</render_show_textures_number>
 	<render_show_textures_offset>0</render_show_textures_offset>
 	<render_show_transparent>0</render_show_transparent>
 	<render_show_triangles>0</render_show_triangles>
-	<show_fps>0</show_fps>
+	<show_fps>1</show_fps>
 	<show_profiler>0</show_profiler>
 	<show_profiler_charts>1</show_profiler_charts>
 	<show_visualizer>0</show_visualizer>

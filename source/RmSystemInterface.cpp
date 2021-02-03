@@ -1,5 +1,4 @@
 #include "RmSystemInterface.h"
-#include <UnigineApp.h>
 
 double RmSystemInterface::GetElapsedTime()
 {
@@ -8,7 +7,6 @@ double RmSystemInterface::GetElapsedTime()
 
 bool RmSystemInterface::LogMessage(Rml::Core::Log::Type type, const Rml::Core::String& message)
 {
-
 	Rml::Core::String lString = message;
 	lString += " \n";
 

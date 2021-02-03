@@ -1,6 +1,6 @@
 #pragma once
 
-#include <RmlUi/Core/RenderInterface.h>
+#include <RmlUi/Core.h>
 
 #include <UnigineApp.h>
 #include <UnigineConsole.h>
@@ -15,18 +15,45 @@
 #include <UnigineWorld.h>
 #include <UnigineFfp.h>
 #include <UnigineImage.h>
+#include <UnigineTextures.h>
+#include <UnigineMeshDynamic.h>
+#include <UnigineMaterials.h>
 
-using namespace Unigine;
+struct  RmRenderJob {
+	RmRenderJob(Rml::Core::Vertex* vertices,
+		int num_vertices,
+		int* indices,
+		int num_indices,
+		Rml::Core::TextureHandle texture,
+		const Rml::Core::Vector2f& translation) : vertices(vertices), 
+		num_vertices(num_vertices),
+		indices(indices),
+		num_indices(num_indices),
+		texture(texture),
+		translation(translation) {};
+
+	Rml::Core::Vertex* vertices;
+	int num_vertices;
+	int* indices;
+	int num_indices;
+	Rml::Core::TextureHandle texture;
+	const Rml::Core::Vector2f& translation;
+};
+
 
 class RmRenderInterface : public Rml::Core::RenderInterface
 {
-	int Width;
-	int Height;
-public:
+	Unigine::MeshDynamicPtr rml_mesh;
+	Unigine::MaterialPtr rml_material;
 
+
+	void* draw_callback_handle;
+public:
 	RmRenderInterface();
 
-	void Initialize();
+	void Construct();
+
+	void Init();
 
 	void RenderGeometry(Rml::Core::Vertex* vertices, int num_vertices, int* indices, int num_indices, Rml::Core::TextureHandle texture, const Rml::Core::Vector2f& translation) override;
 
@@ -51,5 +78,9 @@ public:
 	void ReleaseTexture(Rml::Core::TextureHandle texture_handle) override;
 
 
+private:
+
+	void CreateRenderMesh();
+	void CreateRenderMaterial();
 };
 

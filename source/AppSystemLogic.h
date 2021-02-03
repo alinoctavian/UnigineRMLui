@@ -17,22 +17,21 @@
 
 #include <UnigineLogic.h>
 
-#include "RmRenderInterface.h"
+#include <RmlUi/Debugger.h>
+
 #include "RmSystemInterface.h"
-
-#include "RmlUi/Core.h"
-#include "RmlUi/Controls.h"
-#include "RmlUi/Debugger.h"
-
+#include "RmRenderInterface.h"
 
 class AppSystemLogic : public Unigine::SystemLogic
 {
-	RmRenderInterface Renderer;
-	RmSystemInterface SystemInterface;
+	RmRenderInterface renderInterface;
+	RmSystemInterface systemInterface;
 
 	Rml::Core::Context* Context;
 	Rml::Core::ElementDocument* Document;
 
+
+	void* renderHandle;
 public:
 	AppSystemLogic();
 	virtual ~AppSystemLogic();
@@ -45,7 +44,7 @@ public:
 	int shutdown() override;
 
 
-	void RenderCallback();
+	void OnRender();
 };
 
 #endif // __APP_SYSTEM_LOGIC_H__

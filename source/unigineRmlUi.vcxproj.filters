@@ -14,27 +14,21 @@
     <ClCompile Include="RmSystemInterface.cpp">
       <Filter>RmlUI</Filter>
     </ClCompile>
-    <ClCompile Include="RmFileInterface.cpp">
-      <Filter>RmlUI</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppEditorLogic.h" />
     <ClInclude Include="AppSystemLogic.h" />
     <ClInclude Include="AppWorldLogic.h" />
-    <ClInclude Include="RmSystemInterface.h">
-      <Filter>RmlUI</Filter>
-    </ClInclude>
     <ClInclude Include="RmRenderInterface.h">
       <Filter>RmlUI</Filter>
     </ClInclude>
-    <ClInclude Include="RmFileInterface.h">
+    <ClInclude Include="RmSystemInterface.h">
       <Filter>RmlUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="RmlUI">
-      <UniqueIdentifier>{42c0b5ba-8f4b-4674-93d4-404583fc2017}</UniqueIdentifier>
+      <UniqueIdentifier>{f6be1e6e-deaa-4027-b074-f1aad4a8afd0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

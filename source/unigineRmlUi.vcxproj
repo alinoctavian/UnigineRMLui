@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{32D465FC-CE7A-B4AE-983E-0B9716E7AA46}</ProjectGuid>
-    <ProjectName>rm</ProjectName>
+    <ProjectGuid>{E1C2FAE9-4233-C775-4C6A-1889689148D4}</ProjectGuid>
+    <ProjectName>unigineRmlUi</ProjectName>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
@@ -22,7 +22,7 @@
     <OutDir>$(ProjectDir)../bin/</OutDir>
     <TargetName>$(ProjectName)_x64d</TargetName>
     <LocalDebuggerEnvironment>PATH=$(ProjectDir)../bin/x64;$(ProjectDir)../bin/;%PATH%</LocalDebuggerEnvironment>
-    <LocalDebuggerCommandArguments>-data_path ../ -console_command "world_load \"rm\""</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>-data_path ../ -console_command "world_load \"unigineRmlUi\""</LocalDebuggerCommandArguments>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <PlatformToolset>v142</PlatformToolset>
@@ -30,7 +30,7 @@
     <OutDir>$(ProjectDir)../bin/</OutDir>
     <TargetName>$(ProjectName)_x64</TargetName>
     <LocalDebuggerEnvironment>PATH=$(ProjectDir)../bin/x64;$(ProjectDir)../bin/;%PATH%</LocalDebuggerEnvironment>
-    <LocalDebuggerCommandArguments>-data_path ../ -console_command "world_load \"rm\""</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>-data_path ../ -console_command "world_load \"unigineRmlUi\""</LocalDebuggerCommandArguments>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="PropertySheets">
@@ -43,13 +43,13 @@
       <AdditionalIncludeDirectories>../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <FloatingPointModel>Fast</FloatingPointModel>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>DEBUG;%(PreprocessorDefinitions);RMLUI_STATIC_LIB</PreprocessorDefinitions>
+      <PreprocessorDefinitions>DEBUG;RMLUI_STATIC_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX64</TargetMachine>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Unigine_x64d.lib;%(AdditionalDependencies);RmlControls.lib;RmlCore.lib;RmlDebugger.lib;freetype.lib</AdditionalDependencies>
+      <AdditionalDependencies>Unigine_x64d.lib;freetype.lib;RmlControls.lib;RmlCore.lib;RmlDebugger.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
     </Link>
   </ItemDefinitionGroup>
@@ -60,13 +60,13 @@
       <AdditionalIncludeDirectories>../include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <FloatingPointModel>Fast</FloatingPointModel>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);RMLUI_STATIC_LIB</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RMLUI_STATIC_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <TargetMachine>MachineX64</TargetMachine>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <AdditionalLibraryDirectories>../lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Unigine_x64.lib;%(AdditionalDependencies);RmlControls.lib;RmlCore.lib;RmlDebugger.lib;freetype.lib</AdditionalDependencies>
+      <AdditionalDependencies>Unigine_x64.lib;RmlCore.lib;RmlControls.lib;RmlDebugger.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -74,17 +74,15 @@
     <ClCompile Include="AppSystemLogic.cpp" />
     <ClCompile Include="AppWorldLogic.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="RmFileInterface.cpp" />
-    <ClCompile Include="RmRenderInterface.cpp" />
     <ClCompile Include="RmSystemInterface.cpp" />
+    <ClCompile Include="RmRenderInterface.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppEditorLogic.h" />
     <ClInclude Include="AppSystemLogic.h" />
     <ClInclude Include="AppWorldLogic.h" />
-    <ClInclude Include="RmFileInterface.h" />
-    <ClInclude Include="RmRenderInterface.h" />
     <ClInclude Include="RmSystemInterface.h" />
+    <ClInclude Include="RmRenderInterface.h" />
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="../utils/natvis/unigine_stl.natvis" />
