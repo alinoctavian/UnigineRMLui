@@ -29,12 +29,10 @@ void RmRenderInterface::RenderGeometry(Rml::Core::Vertex* vertices, int num_vert
 	rml_mesh->clearIndices();
 	rml_mesh->allocateVertex(num_vertices);
 	rml_mesh->allocateIndices(num_indices);
-
-	for (int i = 0; i < num_vertices; ++i) {
+	for (int i = 0; i < num_vertices; i++) {
 		rml_mesh->addVertexArray(vertices, num_vertices);
-		rml_mesh->addIndicesArray(indices,num_indices);
+		rml_mesh->addIndicesArray(indices, num_indices);
 	}
-
 	rml_mesh->flushVertex();
 	rml_mesh->flushIndices();
 
@@ -70,22 +68,30 @@ void RmRenderInterface::RenderGeometry(Rml::Core::Vertex* vertices, int num_vert
 
 	Renderer::setShaderParameters(pass, shader, rml_material, false);
 
-	rml_mesh->bind();
-	render_target->enable();
-	{
-		for (int i = 0; i < num_vertices; ++i) {
-			auto tex = TexturePtr(static_cast<Texture*>((void*)texture));
-			rml_material->setTexture("rml_texture", tex);
+	if (texture) {
+
+		rml_mesh->bind();
+		render_target->enable();
+		{
+			if (!texture) {
+				TexturePtr rmTexture = Texture::create();
+				rmTexture->create2D(20, 20, Texture::FORMAT_RGBA8, Texture::DEFAULT_FLAGS);
+				rml_material->setTexture("rml_texture", rmTexture);
+			}
+			else {
+				auto tex = TexturePtr(static_cast<Texture*>((void*)texture));
+				rml_material->setTexture("rml_texture", tex);
+			}
 		}
+		render_target->disable();
+		rml_mesh->unbind();
+
 	}
-	render_target->disable();
-	rml_mesh->unbind();
 
 	RenderState::restoreState();
 
 	render_target->unbindColorTexture(0);
 	Render::releaseTemporaryRenderTarget(render_target);
-
 
 }
 
@@ -155,11 +161,11 @@ void RmRenderInterface::CreateRenderMesh()
 	attributes[0].size = 2;
 	attributes[0].type = MeshDynamic::TYPE_FLOAT;
 	attributes[1].offset = 8;
-	attributes[1].size = 4;
-	attributes[1].type = MeshDynamic::TYPE_UCHAR;
+	attributes[1].size = 2;
+	attributes[1].type = MeshDynamic::TYPE_FLOAT;
 	attributes[2].offset = 16;
-	attributes[2].size = 2;
-	attributes[2].type = MeshDynamic::TYPE_FLOAT;
+	attributes[2].size = 4;
+	attributes[2].type = MeshDynamic::TYPE_UCHAR;
 	rml_mesh->setVertexFormat(attributes, 3);
 
 	/*assert(imgui_mesh->getVertexSize() == sizeof(ImDrawVert) && "Vertex size of MeshDynamic is not equal to size of ImDrawVert");*/
